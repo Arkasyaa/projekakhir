@@ -1,22 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" x-data="app()" :class="{'dark':dark}" class="scroll-smooth">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Eliott — Freelance UI/UX Designer and Frontend Developer. Fast, clean and accessible digital products.">
-<meta name="keywords" content="freelance developer, UI designer, portfolio, Tailwind CSS, Alpine.js">
-<meta name="author" content="Eliott">
-<meta property="og:title" content="Eliott — Freelance UI/UX Designer">
-<meta property="og:description" content="I design and build digital products that people love to use.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://eliott.dev">
-<title>ZansOutdoor — Outdoor Rental &amp; Frontend Dev</title>
+
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
 
 <script>
 tailwind.config = {
@@ -30,7 +23,7 @@ tailwind.config = {
 }
 </script>
 
-<link href="{{ asset('css/style.css')}}" rel="stylesheet">
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
@@ -45,6 +38,8 @@ tailwind.config = {
 
 <!-- ═══ KATALOG ═══ -->
 @include('layouts.inc.katalog')
+
+@include('layouts.inc.keunggulan')
 
 
 <script>

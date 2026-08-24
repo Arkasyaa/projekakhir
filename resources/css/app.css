@@ -1,9 +1,109 @@
-@import 'tailwindcss';
+.keunggulan {
+    padding: 100px 120px;
+    background-color: #285A4D;
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
+}
+.keunggulan .judul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+.keunggulan .judul .title1 {
+    border-radius: 999px;
+    padding: 6px 16px;
+    background-color: #D96B271A;
+    width: fit-content;
+    font-size: 8px;
+    font-weight: 600;
+    color: #D96B27;
+    text-align: center;
+    font-family: 'instrument Sans';
+}
+.keunggulan .judul .title2 {
+    font-size: 30px;
+    font-weight: 800;
+    color: #D2BD94;
+    text-align: center;
+    font-family: 'outfit';
+    text-align: center;
+    text-align: top;
+}
+.ape {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    margin-top: 60px;
+}
+.alat1{
+    background-color: aliceblue;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    padding: 32px 32px;
+    gap: 8px;
+}
+.alat2{
+    background-color: aliceblue;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    padding: 32px 32px;
+    gap: 8px;
+}
+.alat3{        
+    background-color: aliceblue;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    padding: 32px 32px;
+    gap: 8px;
+}
+.alat4{
+    background-color: aliceblue;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    padding: 32px 32px;
+    gap: 8px;
+}
+
+.k1 {
+    white-space: nowrap;
+    font-size: 18px;
+    font-weight: 600;
+    color: #285A4D;
+    font-family: 'outfit';
+}
+.k2 {
+    white-space: nowrap;
+    font-size: 18px;
+    font-weight: 600;
+    color: #285A4D;
+    font-family: 'outfit';
+}
+.k3 {
+    white-space: nowrap;
+    font-size: 18px;
+    font-weight: 600;
+    color: #285A4D;
+    font-family: 'outfit';
+}
+.k4 {
+    white-space: nowrap;
+    font-size: 18px;
+    font-weight: 600;
+    color: #285A4D;
+    font-family: 'outfit';
+}
+.ape h6 {
+    font-size: 12px;
+    font-weight: 400;
+    color: #285A4D;
+    font-family: 'instrument Sans';
 }
