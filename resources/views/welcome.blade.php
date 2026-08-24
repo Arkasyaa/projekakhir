@@ -46,6 +46,12 @@ tailwind.config = {
 <!-- ═══ KATALOG ═══ -->
 @include('layouts.inc.katalog')
 
+<!-- ═══ TENTANG KAMI ═══ -->
+@include('layouts.inc.tentangkami')
+
+<!-- ═══ FOOTER ═══ -->
+@include('layouts.inc.footer')
+
 
 <script>
 function app() {
