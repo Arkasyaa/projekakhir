@@ -50,16 +50,11 @@ tailwind.config = {
 <script>
 function app() {
   return {
-    dark: false,
     mm: false,
     sc: false,
     s: 'hero',
 
     init() {
-      // dark mode
-      this.dark = localStorage.getItem('theme') === 'dark' ||
-        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      this.$watch('dark', v => localStorage.setItem('theme', v ? 'dark' : 'light'));
 
       // scroll
       window.addEventListener('scroll', () => {
