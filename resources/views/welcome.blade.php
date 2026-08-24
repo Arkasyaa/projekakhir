@@ -3,14 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Eliott — Freelance UI/UX Designer and Frontend Developer. Fast, clean and accessible digital products.">
-<meta name="keywords" content="freelance developer, UI designer, portfolio, Tailwind CSS, Alpine.js">
-<meta name="author" content="Eliott">
-<meta property="og:title" content="Eliott — Freelance UI/UX Designer">
-<meta property="og:description" content="I design and build digital products that people love to use.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://eliott.dev">
-<title>ZansOutdoor — Outdoor Rental &amp; Frontend Dev</title>
+<title>ZansOutdoor — Outdoor&amp; Rental</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
