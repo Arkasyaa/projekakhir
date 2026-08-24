@@ -30,80 +30,259 @@
     text-align: center;
     text-align: top;
 }
-.ape {
+.keunggulan .ape {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+}
+.keunggulan .hahay {
     display: flex;
     flex-direction: row;
-    gap: 32px;
-    margin-top: 60px;
+    column-gap: 30px;
+    margin-top: 70px;
 }
-.alat1{
+.keunggulan .alat1{
     background-color: aliceblue;
     border-radius: 16px;
     display: flex;
     flex-direction: column;
     width: fit-content;
     padding: 32px 32px;
-    gap: 8px;
+    gap: 20px;
 }
-.alat2{
+.keunggulan .alat2{
     background-color: aliceblue;
     border-radius: 16px;
     display: flex;
     flex-direction: column;
     width: fit-content;
     padding: 32px 32px;
-    gap: 8px;
+    gap: 20px;
 }
-.alat3{        
+.keunggulan .alat3{        
     background-color: aliceblue;
     border-radius: 16px;
     display: flex;
     flex-direction: column;
     width: fit-content;
     padding: 32px 32px;
-    gap: 8px;
+    gap: 20px;
 }
-.alat4{
+.keunggulan .alat4{
     background-color: aliceblue;
     border-radius: 16px;
     display: flex;
     flex-direction: column;
     width: fit-content;
     padding: 32px 32px;
-    gap: 8px;
+    gap: 20px;
 }
 
-.k1 {
+.keunggulan .k1 {
     white-space: nowrap;
     font-size: 18px;
     font-weight: 600;
     color: #285A4D;
     font-family: 'outfit';
 }
-.k2 {
+.keunggulan .k2 {
     white-space: nowrap;
     font-size: 18px;
     font-weight: 600;
     color: #285A4D;
     font-family: 'outfit';
 }
-.k3 {
+.keunggulan .k3 {
     white-space: nowrap;
     font-size: 18px;
     font-weight: 600;
     color: #285A4D;
     font-family: 'outfit';
 }
-.k4 {
+.keunggulan .k4 {
     white-space: nowrap;
     font-size: 18px;
     font-weight: 600;
     color: #285A4D;
     font-family: 'outfit';
 }
-.ape h6 {
+.keunggulan .ape h6 {
     font-size: 12px;
     font-weight: 400;
     color: #285A4D;
     font-family: 'instrument Sans';
+}
+.keunggulan .fa-shield-halved {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #285A4D;
+    background-color: #285a4d23;
+    border-radius: 8px;
+    width: 38px;
+    height: 38px;
+}
+.keunggulan .fa-money-bill-wave {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #285A4D;
+    background-color: #285a4d23;
+    border-radius: 8px;
+    width: 38px;
+    height: 38px;
+}
+.keunggulan .fa-calendar-days {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #285A4D;
+    background-color: #285a4d23;
+    border-radius: 8px;
+    width: 38px;
+    height: 38px;
+}
+.keunggulan .fa-truck {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #285A4D;
+    background-color: #285a4d23;
+    border-radius: 8px;
+    width: 38px;
+    height: 38px;
+}
+
+
+
+
+
+.cara {
+    padding: 100px 120px;
+    background-color: #FFFFFF;
+
+}
+.cara .judul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+.cara .judul .title1 {
+    border-radius: 999px;
+    padding: 6px 16px;
+    background-color: #D96B271A;
+    width: fit-content;
+    font-size: 8px;
+    font-weight: 600;
+    color: #D96B27;
+    text-align: center;
+    font-family: 'instrument Sans';
+}
+.cara .judul .title2 {
+    font-size: 30px;
+    font-weight: 800;
+    color: #285A4D;
+    text-align: center;
+    font-family: 'outfit';
+    text-align: center;
+    text-align: top;
+}
+.cara .ape {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+}
+.cara .isi {
+    display: flex;
+    flex-direction: row;
+    column-gap: 30px;
+    margin-top: 70px;
+}
+.cara .car1{
+    background-color: #173C34;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    padding: 32px 32px;
+    gap: 20px;
+}
+.cara .car2{
+    background-color: #F4F1EA;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    padding: 32px 32px;
+    gap: 20px;
+}
+.cara .car3{        
+    background-color: #173C34;
+    border-radius: 16px;
+    width: 316px;
+    height: 215px;
+    display: flex;
+    flex-direction: column;
+    padding: 32px 32px;
+    gap: 20px;
+}
+.cara .car4{
+    background-color: #F4F1EA;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    padding: 32px 32px;
+    gap: 20px;
+}
+
+.cara .k1 {
+    white-space: nowrap;
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFFFFF;
+    font-family: 'outfit';
+}
+.cara .k2 {
+    white-space: nowrap;
+    font-size: 18px;
+    font-weight: 600;
+    color: #285A4D;
+    font-family: 'outfit';
+}
+.cara .k3 {
+    white-space: nowrap;
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFFFFF;
+    font-family: 'outfit';
+}
+.cara .k4 {
+    white-space: nowrap;
+    font-size: 18px;
+    font-weight: 600;
+    color: #285A4D;
+    font-family: 'outfit';
+}
+.cara .ape h6 {
+    font-size: 12px;
+    font-weight: 400;
+    color: #285A4D;
+    font-family: 'instrument Sans';
+}
+.cara .ke1{
+    color: #FFFFFF !important;
+}
+.cara h2 {
+    font-family: 'outfit';
+    font-weight: 900;
+    font-size: 30px;
+
+}
+.cara .l1 {
+    color: #FFFFFF !important;
 }

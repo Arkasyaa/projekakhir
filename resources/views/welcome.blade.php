@@ -1,6 +1,12 @@
 <!DOCTYPE html>
+<html lang="en" x-data="app()" :class="{'dark':dark}" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZansOutdoor — Outdoor&amp; Rental</title>
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 <script src="https://cdn.tailwindcss.com"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,20 +47,23 @@ tailwind.config = {
 
 @include('layouts.inc.keunggulan')
 
+@include('layouts.inc.cara_rental')
+
+<!-- ═══ TENTANG KAMI ═══ -->
+@include('layouts.inc.tentangkami')
+
+<!-- ═══ FOOTER ═══ -->
+@include('layouts.inc.footer')
+
 
 <script>
 function app() {
   return {
-    dark: false,
     mm: false,
     sc: false,
     s: 'hero',
 
     init() {
-      // dark mode
-      this.dark = localStorage.getItem('theme') === 'dark' ||
-        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      this.$watch('dark', v => localStorage.setItem('theme', v ? 'dark' : 'light'));
 
       // scroll
       window.addEventListener('scroll', () => {
