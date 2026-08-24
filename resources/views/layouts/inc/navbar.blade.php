@@ -1,5 +1,4 @@
-<header class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
-  :class="sc?'bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-sm shadow-black/5':''">
+<header class="fixed inset-x-0 top-0 z-50 transition-all duration-300 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md shadow-sm shadow-black/5">
   <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between" aria-label="Main navigation">
 
     <a href="#hero" class="font-display font-bold text-xl tracking-tight relative z-10">
@@ -16,8 +15,8 @@
 
     <div class="flex items-center gap-3">
       <!-- Tombol Daftar -->
-        <a href="/register" class="shimmer bg-white text-emerald-800 text-sm font-medium px-5 py-2 rounded-full border border-emerald-800 hover:bg-emerald-50">
-         Daftar
+        <a href="/register" class="shimmer bg-white/70 backdrop-blur-md text-emerald-800 text-sm font-medium px-5 py-2 rounded-full border border-emerald-800/30 hover:bg-white/90">
+        Daftar
         </a>
 
       <!-- Tombol Login -->

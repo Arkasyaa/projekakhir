@@ -2,8 +2,8 @@
     <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
         <div class="grid grid-cols-2 gap-4">
-            <img src="{{ asset('images/tentang-1.jpg') }}"
-                 class="col-span-2 w-full h-56 object-cover rounded-lg">
+            <img src="{{ asset('images/akhiran.jpeg') }}"
+                 class="col-span-2 w-full h-auto object-cover rounded-lg">
         </div>
 
         <div>
