@@ -12,10 +12,10 @@
         <div>
             <h3 class="text-white font-semibold mb-3">Kategori Populer</h3>
             <ul class="space-y-2 text-sm text-gray-400">
-                <li><a href="#" class="hover:text-white">Tenda</a></li>
-                <li><a href="#" class="hover:text-white">Tas Carrier</a></li>
-                <li><a href="#" class="hover:text-white">Sleeping Bag</a></li>
-                <li><a href="#" class="hover:text-white">Paket Pendakian</a></li>
+                <li>Tenda</li>
+                <li>Tas Carrier</li>
+                <li>Sleeping Bag</li>
+                <li>Paket Pendakian</li>
             </ul>
         </div>
 
@@ -23,15 +23,15 @@
             <h3 class="text-white font-semibold mb-3">Hubungi Kami</h3>
             <ul class="space-y-3 text-sm text-gray-400">
                 <li class="flex items-center gap-2">
-                    <i class="fas fa-phone"></i>
+                    <i class="fas fa-phone w-5 text-center"></i>
                     +62 859-4658-9222
                 </li>
                 <li class="flex items-start gap-2">
-                    <i class="fas fa-location-dot"></i>
+                    <i class="fas fa-location-dot w-5 text-center mt-1"></i>
                     Rt08 Gg. Rw., Dusun II, Losari, Kec. Rembang, Kabupaten Purbalingga, Jawa Tengah
                 </li>
                 <li class="flex items-center gap-2">
-                    <i class="fas fa-envelope"></i>
+                    <i class="fas fa-envelope w-5 text-center"></i>
                     admin@gmail.com
                 </li>
             </ul>
