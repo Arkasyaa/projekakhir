@@ -1,4 +1,4 @@
-<section class="bg-white py-16 px-6 lg:px-20">
+<section class="bg-white py-16 px-6 lg:px-20" id="tentang_kami">
     <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
         <div class="grid grid-cols-2 gap-4">

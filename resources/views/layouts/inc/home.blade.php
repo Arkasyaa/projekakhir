@@ -20,7 +20,7 @@
           Jelajahi Keindahan Alam Indonesia dengan Alat <span class="text-emerald-400">Terbaik</span>
         </h1>
         <p class="reveal d2 text-lg md:text-xl text-zinc-200 font-light leading-relaxed max-w-md mb-10">
-          Penyedia <strong class="font-medium text-black">rental perlengkapan hiking, camping & mountaineering</strong>. 
+          Penyedia <strong class="font-medium text-accent">rental perlengkapan hiking, camping & mountaineering</strong>. 
           Semua alat berstandar internasional, sudah bersih, steril, dan siap pakai.
         </p>
         

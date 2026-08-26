@@ -1,4 +1,4 @@
-<section class="keunggulan">
+<section class="keunggulan" id="keunggulan">
     <div class="judul">
         <div class="label">
         <h6 class="title1">MENGAPA MEMILIH KAMI</h6>

@@ -1,4 +1,4 @@
-<section class="cara">
+<section class="cara" id="cara_sewa">
     <div class="judul">
         <div class="label">
         <h6 class="title1">CARA RENTAL</h6>

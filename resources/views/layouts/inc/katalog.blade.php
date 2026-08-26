@@ -1,33 +1,100 @@
-<section id="katalog" class="py-10 bg-zinc-50 dark:bg-zinc-900/40">
+<section id="katalog" class="py-20 bg-zinc-50 dark:bg-zinc-900/40">
   <div class="max-w-6xl mx-auto px-6">
-    <div class="mb-14">
-      <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">Katalog sewa kami</p>
-      <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">Peralatan Tangguh untuk Segala Medan Ekstrem</h2>
+    <div class="mb-14 text-center">
+      <p class="reveal inline-block text-xs font-semibold text-orange-600 tracking-widest uppercase mb-5 px-5 py-2 rounded-full bg-orange-100">
+      KATALOG
+      </p>
+      
+      <h2 class="reveal d1 font-display font-bold text-3xl md:text-4xl text-emerald-800">Peralatan Tangguh untuk Segala Medan Ekstrem</h2>
     </div>
     <div class="grid md:grid-cols-3 gap-6">
 
-      <article class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
-        <div class="w-12 h-12 flex items-center justify-center bg-orange-50 dark:bg-zinc-800 rounded-xl mb-6 group-hover:bg-accent/10 transition-colors">
-          <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-2"/></svg>
+    <!-- Artikel 1 -->
+      <article class="reveal d3 group bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-100 dark:border-zinc-800 hover:border-emerald-800 overflow-hidden transition-all hover:shadow-lg">
+  
+        <!-- Gambare -->
+        <div class="aspect-[4/3] overflow-hidden">
+            <img 
+            src="{{ asset('images/jaket.png') }}" 
+            alt="Paket Pakaian"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            >
         </div>
-        <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">Pakaian</h3>
-        <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">From wireframes to polished Figma prototypes. Intuitive, visually compelling interfaces that convert visitors into users and put usability first.</p>
-      </article>
 
-      <article class="reveal d3 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
-        <div class="w-12 h-12 flex items-center justify-center bg-orange-50 dark:bg-zinc-800 rounded-xl mb-6 group-hover:bg-accent/10 transition-colors">
-          <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>
-        </div>
-        <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">Camping</h3>
-        <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">High-converting pages for SaaS, apps and personal brands. Designed to communicate value instantly and drive action from the first scroll.</p>
-      </article>
+        <!-- tulisane -->
+        <div class="p-6">
+            <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2">Paket Pakaian</h3>
+            
+            <p class="text-sm font-semibold text-emerald-800 mb-3">Sewa mulai Rp16.000/2 hari</p>
+            
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
+            Jaket, Celana, dan Sepatu untuk kenyamanan pada tubuh Anda.
+            </p>
 
-       <article class="reveal d3 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
-        <div class="w-12 h-12 flex items-center justify-center bg-orange-50 dark:bg-zinc-800 rounded-xl mb-6 group-hover:bg-accent/10 transition-colors">
-          <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>
+            <a href="#katalog-detail" class="inline-flex items-center gap-2 text-sm font-medium text-emerald-800 hover:gap-3 transition-all">
+            Lihat Item Koleksi
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
         </div>
-        <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">Aksesoris Hiking</h3>
-        <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">High-converting pages for SaaS, apps and personal brands. Designed to communicate value instantly and drive action from the first scroll.</p>
+
+      </article>
+    <!-- Artikel 2 -->
+      <article class="reveal d3 group bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-100 dark:border-zinc-800 hover:border-emerald-800 overflow-hidden transition-all hover:shadow-lg">
+  
+        <!-- Gambare -->
+        <div class="aspect-[4/3] overflow-hidden">
+            <img 
+            src="{{ asset('images/tenda.webp') }}" 
+            alt="Paket Pakaian"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            >
+        </div>
+
+        <!-- tulisane -->
+        <div class="p-6">
+            <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2">Tenda</h3>
+            
+            <p class="text-sm font-semibold text-emerald-800 mb-3">Sewa mulai Rp16.000/2 hari</p>
+            
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
+            Jaket, Celana, dan Sepatu untuk kenyamanan pada tubuh Anda.
+            </p>
+
+            <a href="#katalog-detail" class="inline-flex items-center gap-2 text-sm font-medium text-emerald-800 hover:gap-3 transition-all">
+            Lihat Item Koleksi
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+
+      </article>
+    <!-- Artikel 3 -->
+       <article class="reveal d3 group bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-100 dark:border-zinc-800 hover:border-emerald-800 overflow-hidden transition-all hover:shadow-lg">
+  
+        <!-- Gambare -->
+        <div class="aspect-[4/3] overflow-hidden">
+            <img 
+            src="{{ asset('images/carrier.jpeg') }}" 
+            alt="Paket Pakaian"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            >
+        </div>
+
+        <!-- tulisane -->
+        <div class="p-6">
+            <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2">Carrier</h3>
+            
+            <p class="text-sm font-semibold text-emerald-800 mb-3">Sewa mulai Rp16.000/2 hari</p>
+            
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
+            Jaket, Celana, dan Sepatu untuk kenyamanan pada tubuh Anda.
+            </p>
+
+            <a href="#katalog-detail" class="inline-flex items-center gap-2 text-sm font-medium text-emerald-800 hover:gap-3 transition-all">
+            Lihat Item Koleksi
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+
       </article>
 
     </div>
