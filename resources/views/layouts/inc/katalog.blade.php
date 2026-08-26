@@ -1,11 +1,11 @@
 <section id="katalog" class="py-20 bg-zinc-50 dark:bg-zinc-900/40">
   <div class="max-w-6xl mx-auto px-6">
     <div class="mb-14 text-center">
-      <p class="reveal inline-block text-xs font-semibold text-orange-600 tracking-widest uppercase mb-5 px-5 py-2 rounded-full bg-orange-100">
-      KATALOG
+      <p class="reveal inline-block bg-[#D96B27]/10 rounded-full py-1 px-3 text-[8px] text-['Instrument_Sans'] text-[#D96B27] font-bold tracking-[5%] mb-7">
+      KATALOG SEWA KAMI
       </p>
       
-      <h2 class="reveal d1 font-display font-bold text-3xl md:text-4xl text-emerald-800">Peralatan Tangguh untuk Segala Medan Ekstrem</h2>
+      <h2 class="reveal d1 font-['Outfit'] text-center tracking-[0%] font-[800] text-[30px]">Peralatan Tangguh untuk Segala<br> Medan Ekstrem</h2>
     </div>
     <div class="grid md:grid-cols-3 gap-6">
 
