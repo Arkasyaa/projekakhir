@@ -15,12 +15,12 @@
 
     <div class="flex items-center gap-3">
       <!-- Tombol Daftar -->
-        <a href="/register" class="shimmer bg-white/70 backdrop-blur-md text-emerald-800 text-sm font-medium px-5 py-2 rounded-full border border-emerald-800/30 hover:bg-white/90">
+        <a href="{{ route('register') }}" class="shimmer bg-white/70 backdrop-blur-md text-emerald-800 text-sm font-medium px-5 py-2 rounded-full border border-emerald-800/30 hover:bg-white/90">
         Daftar
         </a>
 
       <!-- Tombol Login -->
-        <a href="/login" class="shimmer bg-emerald-800 text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-emerald/90">
+        <a href="{{ route('login') }}" class="shimmer bg-emerald-800 text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-emerald/90">
          Login
         </a>
     </div>
