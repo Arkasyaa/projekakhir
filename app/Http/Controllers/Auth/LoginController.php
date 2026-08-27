@@ -3,17 +3,37 @@
 namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
-use Illuminate\Routing\ControllerDispatcher;
+use Illuminate\Support\Facades\Auth;
 
-class LoginController extends Controller
+class LoginController extends Controller 
 {
+    // Tampil form login
+    public function showLoginForm()
+    {
+        return view('auth.login');
+    }
 
-public function showLoginForm()
-{
-    return view ('auth.login');
-}
+    // Proses login
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
 
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            // TAMBAHAN BUAT CEK ROLE
+            if (Auth::user()->role == 'admin') {
+                return redirect('/admin/dashboard')->with('success', 'Login Admin Berhasil');
+            }
+            return redirect('/home')->with('success', 'Login Berhasil');
+        }
+
+        return back()->withErrors([
+            'email' => 'Email atau password salah.',
+        ])->onlyInput('email');
+    }
 }
