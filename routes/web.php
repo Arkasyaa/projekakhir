@@ -25,3 +25,8 @@ Route::middleware('auth')->group(function () {
 Route::get('/admin/dashboard', [AdminController::class, 'index']);
 Route::get('/home', [UserController::class, 'index']);
 });
+
+
+Route::get('/keranjang', function () {
+    return view('pages.keranjang.index');
+});

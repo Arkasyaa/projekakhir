@@ -7,6 +7,9 @@
     <title>Login</title>
 </head>
 <body>
+    <section class="hero">
+    <div class="absolute inset-0">
+    
     <h1>Login</h1>
 
     @if (session('success'))
@@ -36,10 +39,12 @@
                 Ingat saya
             </label>
         </div>
-
+    </section>
         <button type="submit">Login</button>
     </form>
+    
 </body>
+
 </html>
 
 {{-- <h1>login</h1>
