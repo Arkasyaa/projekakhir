@@ -9,21 +9,11 @@
 <body>
     <h1>Register</h1>
 
-<<<<<<< HEAD
-<h1>Register</h1>
-<form action="{{ route('register') }}" method="POST">
-    @csrf
-    <input type="text" name="name" placeholder="Nama"><br>
-    <input type="email" name="email" placeholder="Email"><br>
-    <input type="password" name="password" placeholder="Password"><br>
-    <button>buat akun</button>
-</form>
-=======
     @if (session('success'))
         <p>{{ session('success') }}</p>
     @endif
 
-    <form method="POST" action="{{ route('register.post') }}">
+    <form method="POST" action="{{ route('register') }}">
         @csrf
 
         <div>
@@ -65,4 +55,3 @@
 <button>buat akun</button> --}}
 
 
->>>>>>> 3d7ad5e5ae32ed8ea3711bb1500a395067167db4
