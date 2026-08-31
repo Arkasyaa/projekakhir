@@ -22,8 +22,11 @@
         <a class="fa-solid fa-history">
         </a>
 
-        <a class="fa-solid fa-user">
+    <div>
+        <a href="{{ route('profile') }}">
+        <i class="fa-solid fa-user"></i>
         </a>
+    </div>
     </div>
   </nav>
 
