@@ -34,28 +34,52 @@ tailwind.config = {
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
+<body>
 
-<!-- ═══ NAV ═══ -->
+<div>
  @include('layouts.inc.navbaruser')
+</div>
 
-<main>
+<div class="bg-gray-50 py-20">
+    <div class="container mx-auto px-4 lg:px-8">
 
-<!-- ═══ HOME ═══ -->
-@include('layouts.inc.home')
+        <!-- Breadcrumb -->
+        <nav class="text-sm text-gray-500 mb-6">
+            <a href="#" class="hover:text-emerald-700">Beranda</a>
+            <span class="mx-2">></span>
+            <a href="#" class="hover:text-emerald-700">Katalog</a>
+            <span class="mx-2">></span>
+            <span class="text-[#B86B4B] font-medium">Detail Katalog</span> 
+        </nav>
+         <div class="flex items-center gap-3 mb-2">
+            <a href="#" class="text-2xl">
+                <i class="fa-solid fa-arrow-left"></i> 
+            </a>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Detail Katalog</h1>
+        </div>
+        <p class="text-gray-600 mb-8">
+            Pilih dan sesuaikan perlengkapan hiking & camping terbaik untuk ekspedisi tangguh Anda.
+        </p>
+         <div class="flex flex-wrap gap-3">
+            <button class="px-6 py-2 rounded-full bg-gray-900 text-white font-medium hover:bg-gray-800 transition">Semua</button>
+            <button class="px-6 py-2 rounded-full bg-white text-gray-700 border-gray-200 font-medium hover:bg-gray-100 transition">Pakaian</button>
+            <button class="px-6 py-2 rounded-full bg-white text-gray-700 border-gray-200 font-medium hover:bg-gray-100 transition">Tas Carrier & Pack</button>
+            <button class="px-6 py-2 rounded-full bg-white text-gray-700 border-gray-200 font-medium hover:bg-gray-100 transition">Camping</button>
+            <button class="px-6 py-2 rounded-full bg-white text-gray-700 border-gray-200 font-medium hover:bg-gray-100 transition">Aksesoris Hiking</button>
+        </div>
+        
+        <div class="container mx-auto pt-10 pb-4">
+            <div class="flex items-center gap-3">
+                <div class="w-1 h-8 bg-[#B86B4B] rounded-full"></div>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900">Pakaian Outdoor</h2>
+            </div>
+            {{-- ini kategori pakaian ck--}}
+        </div>
+         
 
-<!-- ═══ KATALOG ═══ -->
-@include('layouts.inc.kataloguser')
+    </div>
+</div>
 
-@include('layouts.inc.keunggulan')
-
-@include('layouts.inc.cara_rental')
-
-<!-- ═══ TENTANG KAMI ═══ -->
-@include('layouts.inc.tentangkami')
-
-<!-- ═══ FOOTER ═══ -->
-@include('layouts.inc.footer')
 
 
 <script>

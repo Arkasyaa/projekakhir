@@ -6,8 +6,8 @@
       </p>
       
       <h2 class="reveal d1 font-['Outfit'] text-center tracking-[0%] font-[800] text-[30px]">Peralatan Tangguh untuk Segala<br> Medan Ekstrem</h2>
-      <a href="#katalog-detail" class="flex justify-end items-center gap-2 text-sm font-medium text-emerald-800 hover:gap-3 transition-all">
-            Lihat Item Koleksi
+      <a href="{{ route('daftar.alat') }}" class="flex justify-end items-center gap-2 text-sm font-medium text-emerald-800 hover:gap-3 transition-all">
+            Lihat Daftar Alat
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
       </a>
     </div>

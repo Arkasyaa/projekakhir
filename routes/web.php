@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AlatController;
 
 // Halaman Home
 Route::get('/', function () {
@@ -25,3 +26,5 @@ Route::middleware('auth')->group(function () {
 Route::get('/admin/dashboard', [AdminController::class, 'index']);
 Route::get('/home', [UserController::class, 'index']);
 });
+
+Route::get('/daftar_alat', [AlatController::class, 'index'])->name('daftar.alat');
