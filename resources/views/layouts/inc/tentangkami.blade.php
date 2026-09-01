@@ -1,4 +1,4 @@
-<section class="bg-white py-16 px-6 lg:px-20" id="tentang_kami">
+<section class="bg-[#FAF8F5] py-16 px-6 lg:px-20" id="tentang_kami">
     <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
         <div class="grid grid-cols-2 gap-4">
@@ -7,7 +7,7 @@
         </div>
 
         <div>
-            <span class="inline-block bg-orange-100 text-orange-600 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">
+            <span class="inline-block bg-[#D96B27]/10 text-[#D96B27] text-[8px] text-[Instrument_Sans] font-bold px-3 py-1 rounded-full uppercase tracking-wide">
                 Tentang Zans Outdoor
             </span>
 

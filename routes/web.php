@@ -1,11 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\LoginController;  
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AlatController;
+use App\Http\Controllers\ProfileController;
 
 // Halaman Home
 Route::get('/', function () {
@@ -28,3 +29,8 @@ Route::get('/home', [UserController::class, 'index']);
 });
 
 Route::get('/daftar_alat', [AlatController::class, 'index'])->name('daftar.alat');
+Route::middleware('auth')->group(function () {
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+});
+

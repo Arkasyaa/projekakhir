@@ -286,3 +286,10 @@
 .cara .l1 {
     color: #FFFFFF !important;
 }
+
+
+.hero {
+    background-image: url('/images/logn.png');
+    background-size: cover;
+    background-position: center;
+}
