@@ -6,21 +6,10 @@
     </a>
 
     <ul class="hidden md:flex items-center gap-8 text-sm" role="list">
-      <li><a href="#home" class="font-['Instrument_Sans'] nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='services'?'on !text-zinc-900 dark:!text-white':''">Home</a></li>
-      <li><a href="#katalog"     class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='work'?'on !text-zinc-900 dark:!text-white':''">Katalog</a></li>
-      <li><a href="#keunggulan"   class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='about'?'on !text-zinc-900 dark:!text-white':''">Keunggulan</a></li>
-      <li><a href="#cara_sewa" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='reviews'?'on !text-zinc-900 dark:!text-white':''">Cara Sewa</a></li>
-      <li><a href="#tentang_kami"    class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='blog'?'on !text-zinc-900 dark:!text-white':''">Tentang Kami</a></li>
+      <li><a href="#home" class="font-['Instrument_Sans'] nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='services'?'on !text-zinc-900 dark:!text-white':''">Kelola Alat</a></li>
+      <li><a href="#katalog"     class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='work'?'on !text-zinc-900 dark:!text-white':''">Kelola User</a></li>
+      <li><a href="#keunggulan"   class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='about'?'on !text-zinc-900 dark:!text-white':''">Kelola Rental</a></li>
     </ul>
-
-    <div class="flex items-center gap-3">
-      
-        <a class="fa-solid fa-cart-shopping">
-        </a>
-
-      
-        <a class="fa-solid fa-history">
-        </a>
 
     <div>
         <a href="{{ route('profile') }}">
