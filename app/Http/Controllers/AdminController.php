@@ -15,6 +15,6 @@ class AdminController extends Controller
             return redirect('/home')->with('error', 'Akses ditolak');
         }
 
-        return view('pages.admin.dashboard');
+        return view('pages.admin.kelola_alat.index');
     }
 }
