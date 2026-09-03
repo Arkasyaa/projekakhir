@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserAlatController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminAlatController;
+use App\Http\Controllers\KelolauserController;
 
 // Halaman Home
 Route::get('/', function () {
@@ -38,6 +39,13 @@ Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 });
 
+<<<<<<< HEAD
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('alat', AdminAlatController::class);
 });
+=======
+Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+Route::resource('kelola_user', KelolauserController::class);
+});
+
+>>>>>>> a74a85c (Membuat kelola user untuk admin)
