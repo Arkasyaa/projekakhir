@@ -5,8 +5,9 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\AlatController;
+use App\Http\Controllers\UserAlatController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AdminAlatController;
 
 // Halaman Home
 Route::get('/', function () {
@@ -24,13 +25,19 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // admin dan user
 Route::middleware('auth')->group(function () {
-Route::get('/admin/dashboard', [AdminController::class, 'index']);
-Route::get('/home', [UserController::class, 'index']);
+    Route::get('/admin', function () { 
+        return redirect()->route('admin.alat.index');
+    })->name('admin');
+
+    Route::get('/home', [UserController::class, 'index']);
 });
 
-Route::get('/daftar_alat', [AlatController::class, 'index'])->name('daftar.alat');
+Route::get('/daftar_alat', [UserAlatController::class, 'index'])->name('daftar.alat');
 Route::middleware('auth')->group(function () {
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 });
 
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('alat', AdminAlatController::class);
+});

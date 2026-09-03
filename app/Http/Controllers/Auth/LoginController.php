@@ -27,7 +27,7 @@ class LoginController extends Controller
 
             // TAMBAHAN BUAT CEK ROLE
             if (Auth::user()->role == 'admin') {
-                return redirect('/admin/dashboard')->with('success', 'Login Admin Berhasil');
+                return redirect()->route('admin.alat.index')->with('success', 'Login Admin Berhasil');
             }
             return redirect('/home')->with('success', 'Login Berhasil');
         }
