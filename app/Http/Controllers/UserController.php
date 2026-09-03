@@ -12,7 +12,7 @@ class UserController extends Controller
     {
         // cek biar admin gabisa masuk ke dashboard user
         if (Auth::user()->role == 'admin') {
-            return redirect('/admin/dashboard');
+            return redirect()->route('admin.alat.index');
         }
 
         return view('pages.user.dashboard');
