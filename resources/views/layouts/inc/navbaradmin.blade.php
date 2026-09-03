@@ -2,13 +2,13 @@
   <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between" aria-label="Main navigation">
 
     <a class="font-['DM_Serif_Display'] font-bold text-xl tracking-tight relative z-10">
-      <span class="text-[#285A4D] text-[20px] font-normal tracking-[1px] " >ZansOutdoor.</span>
+      <span class="text-[#285A4D] text-[20px] font-normal tracking-[1px] " >ZansOutdoor.</span><span class="text-[#D96B27] text-[10px] !font-['Instrument_Sans'] font-bold rounded-full bg-[#FEE2E2] py-[1px] px-[7px]">ADMIN</span>
     </a>
 
     <ul class="hidden md:flex items-center gap-8 text-sm" role="list">
       <li><a href="#home" class="font-['Instrument_Sans'] nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='services'?'on !text-zinc-900 dark:!text-white':''">Kelola Alat</a></li>
       <li><a href="#katalog"     class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='work'?'on !text-zinc-900 dark:!text-white':''">Kelola User</a></li>
-      <li><a href="#keunggulan"   class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='about'?'on !text-zinc-900 dark:!text-white':''">Kelola Rental</a></li>
+      <li><a href="{{ route('admin.kelola_rental.index')}}"   class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='about'?'on !text-zinc-900 dark:!text-white':''">Kelola Rental</a></li>
     </ul>
 
     <div>

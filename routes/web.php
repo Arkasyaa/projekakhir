@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AlatController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\KelolaRentalController;
 
 // Halaman Home
 Route::get('/', function () {
@@ -33,4 +34,6 @@ Route::middleware('auth')->group(function () {
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 });
+
+Route::get('admin/kelola_rental', [KelolaRentalController::class, 'index'])->name('admin.kelola_rental.index');
 
