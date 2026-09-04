@@ -11,6 +11,7 @@ class KelolaRentalController extends Controller
      */
     public function index()
     {
+       
         return view('pages.admin.kelola_rental.index');
     }
 
