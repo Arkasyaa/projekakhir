@@ -48,6 +48,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('alat', AdminAlatController::class);
 });
 
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('alat', AdminAlatController::class);
+});
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
 Route::resource('kelola_user', KelolauserController::class);
 });
