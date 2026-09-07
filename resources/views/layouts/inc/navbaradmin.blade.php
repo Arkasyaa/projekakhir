@@ -6,15 +6,9 @@
     </a>
 
     <ul class="hidden md:flex items-center gap-8 text-sm" role="list">
-<<<<<<< HEAD
       <li><a href="#home" class="font-['Instrument_Sans'] nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='services'?'on !text-zinc-900 dark:!text-white':''">Kelola Alat</a></li>
       <li><a href="{{ route('admin.kelola_rental.index')}}"   class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='about'?'on !text-zinc-900 dark:!text-white':''">Kelola Rental</a></li>
       <li><a href="{{ route('admin.kelola_user.index') }}"     class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='work'?'on !text-zinc-900 dark:!text-white':''">Kelola User</a></li>
-=======
-      <li><a href="{{ route('admin.alat.index') }}" class="font-['Instrument_Sans'] nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='services'?'on !text-zinc-900 dark:!text-white':''">Kelola Alat</a></li>
-      <li><a href="{{ route('admin.kelola_user.index') }}"     class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='work'?'on !text-zinc-900 dark:!text-white':''">Kelola User</a></li>
-      <li><a href="#"   class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='about'?'on !text-zinc-900 dark:!text-white':''">Kelola Rental</a></li>
->>>>>>> ea06c2ae86e597a242fa10d0e3f5aca06462f018
     </ul>
 
     <div>

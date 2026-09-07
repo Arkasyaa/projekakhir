@@ -3,7 +3,7 @@
 @section('title', 'Kelola Alat')
 
 @section('content')
-<div class="bg-[#FCFBF6]>
+<div class="bg-[#FCFBF6]">
 <div class="max-w-6xl mx-auto px-4 lg:px-10 py-20">
         <div class="flex items-center justify-between">       
             <h1 class="font-['Outfit'] text-[30px] font-bold py-[40px] ">Kelola Alat</h1>
@@ -81,9 +81,7 @@
     </div> --}}
 
 </div>
-<<<<<<< HEAD
 </div>
-=======
 <form action="" id="form-destroy" method="POST">
     @csrf
     @method('DELETE')
@@ -111,5 +109,4 @@ function actionDestroy(url) {
     });
 }
 </script>
->>>>>>> ea06c2ae86e597a242fa10d0e3f5aca06462f018
 @endsection
