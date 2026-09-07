@@ -39,4 +39,5 @@
         <a href="{{ route('admin.alat.index') }}" class="btn btn-secondary">Batal</a>
     </form>
 </div>
+
 @endsection

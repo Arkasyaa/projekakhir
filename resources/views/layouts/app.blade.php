@@ -16,6 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 
 
@@ -35,6 +36,7 @@ tailwind.config = {
 </head>
 
 <body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
    @if(Auth::user()->role == 'admin')
         @include('layouts.inc.navbaradmin')
@@ -63,25 +65,25 @@ function app() {
         this.updateSection();
       }, { passive: true });
 
-      // reveal
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    //   // reveal
+    //   const io = new IntersectionObserver(entries => {
+    //     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    //   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    //   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-      // year
-      document.getElementById('yr').textContent = new Date().getFullYear();
-    },
+    //   // year
+    //   document.getElementById('yr').textContent = new Date().getFullYear();
+    // },
 
-    updateSection() {
-      const atBottom = (window.innerHeight + window.scrollY) >= document.body.scrollHeight - 60;
-      if (atBottom) { this.s = 'contact'; return; }
-      const ids = ['contact','blog','reviews','about','work','services','hero'];
-      for (const id of ids) {
-        const el = document.getElementById(id);
-        if (el && window.scrollY >= el.offsetTop - 130) { this.s = id; return; }
-      }
-    }
+    // updateSection() {
+    //   const atBottom = (window.innerHeight + window.scrollY) >= document.body.scrollHeight - 60;
+    //   if (atBottom) { this.s = 'contact'; return; }
+    //   const ids = ['contact','blog','reviews','about','work','services','hero'];
+    //   for (const id of ids) {
+    //     const el = document.getElementById(id);
+    //     if (el && window.scrollY >= el.offsetTop - 130) { this.s = id; return; }
+    //   }
+     }
   }
 }
 </script>

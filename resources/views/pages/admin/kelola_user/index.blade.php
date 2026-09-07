@@ -82,5 +82,4 @@
         </p>
         {{ $users->links() }}
     </div>
-
 @endsection

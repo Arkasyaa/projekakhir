@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserAlatController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\KelolaRentalController;
 use App\Http\Controllers\AdminAlatController;
 use App\Http\Controllers\KelolauserController;
 
@@ -26,7 +27,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // admin dan user
 Route::middleware('auth')->group(function () {
-    Route::get('/admin', function () { 
+    Route::get('/admin', function () {
         return redirect()->route('admin.alat.index');
     })->name('admin');
 
@@ -42,7 +43,17 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('alat', AdminAlatController::class);
 });
 
+Route::get('admin/kelola_rental', [KelolaRentalController::class, 'index'])->name('admin.kelola_rental.index');
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('alat', AdminAlatController::class);
+});
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('alat', AdminAlatController::class);
+});
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
 Route::resource('kelola_user', KelolauserController::class);
 });
+
 
