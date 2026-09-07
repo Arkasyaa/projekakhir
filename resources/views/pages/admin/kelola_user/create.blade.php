@@ -21,27 +21,27 @@
 
         <div>
             <label for="name">Nama</label>
-            <input type="text" name="name" id="name" value="{{ old('name') }}">
+            <input type="text" name="name" id="name" value="{{ old('name') }}" required>
         </div>
 
         <div>
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" value="{{ old('email') }}">
+            <input type="email" name="email" id="email" value="{{ old('email') }}" required>
         </div>
 
         <div>
             <label for="password">Password</label>
-            <input type="password" name="password" id="password">
+            <input type="password" name="password" id="password" required>
         </div>
 
         <div>
             <label for="no_hp">Nomor HP</label>
-            <input type="text" name="no_hp" id="no_hp" value="{{ old('no_hp') }}">
+            <input type="text" name="no_hp" id="no_hp" value="{{ old('no_hp') }}" required>
         </div>
 
         <div>
             <label for="alamat">Alamat</label>
-            <textarea name="alamat" id="alamat">{{ old('alamat') }}</textarea>
+            <textarea name="alamat" id="alamat" required>{{ old('alamat') }}</textarea>
         </div>
 
         <div>

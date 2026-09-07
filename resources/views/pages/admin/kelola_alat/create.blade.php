@@ -31,7 +31,7 @@
             <label>Status</label>
             <select name="status" class="form-control">
                 <option value="tersedia">Tersedia</option>
-                <option value="dipinjam">Dipinjam</option>
+                <option value="habis">Habis</option>
                 <option value="rusak">Rusak</option>
             </select>
         </div>
