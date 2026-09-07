@@ -30,40 +30,48 @@
         </form>
     </div>
 
-    <table class="table overflow-x-auto w-full table-bordered">
+    <table class="table border rounded-lg border-[#5C645D] overflow-hidden w-full table-bordered font-['Instrument_Sans']">
         <thead>
-            <tr>
-                <th>No</th>
-                <th>Foto</th>
-                <th>Nama Alat</th>
-                <th>Kategori</th>
-                <th>Harga</th>
-                <th>Stok</th>
-                <th>Status</th>
-                <th>Aksi</th>
+            <tr class="font-['Instrument_Sans'] text-center text-[15px] font-semibold">
+                <th class="!text-[#5C645D]">No</th>
+                <th class="!text-[#5C645D]">Foto</th>
+                <th class="!text-[#5C645D]">Nama Alat</th>
+                <th class="!text-[#5C645D]">Kategori</th>
+                <th class="!text-[#5C645D]">Harga</th>
+                <th class="!text-[#5C645D]">Stok</th>
+                <th class="!text-[#5C645D]">Status</th>
+                <th class="!text-[#5C645D]">Aksi</th>
             </tr>
         </thead>
         <tbody>
             @forelse($alats as $alat)
-            <tr>
-                <td>{{ $loop->iteration }}</td>
-                <td>
+            <tr class="text-center font-['Outfit'] text-center text-[13px] font-semibold">
+                <td class="!py-[18px] align-middle">{{ $loop->iteration }}</td>
+                <td class="!py-[18px] align-middle">
                     @if($alat->foto)
                         <img src="{{ asset('storage/images_alat/'.$alat->foto) }}" width="60">
                     @endif
                 </td>
-                <td>{{ $alat->nama_alat }}</td>
-                <td>{{ $alat->kategori }}</td>
-                <td>Rp{{ number_format($alat->harga) }}</td>
-                <td>{{ $alat->stok }}</td>
-                <td>{{ $alat->status }}</td>
-                <td>
-                    <a href="#" class="btn btn-warning btn-sm">Edit</a>
-                    <a href="#"
-                        onclick="actionDestroy('{{ route('admin.alat.destroy', $alat->id) }}')"
-                        class="btn btn-sm btn-danger">
-                        Hapus
-                    </a>
+                <td class="!py-[18px] align-middle">{{ $alat->nama_alat }}</td>
+                <td class="!py-[18px] align-middle font-['Instrument_Sans'] font-normal">{{ $alat->kategori }}</td>
+                <td class="!py-[18px] align-middle !text-[#D96B27]">Rp{{ number_format($alat->harga) }}</td>
+                <td class="!py-[18px] align-middle font-normal">{{ $alat->stok }}</td>
+                <td class="!py-[18px] align-middle !text-[#10B981]"><span class="rounded-full bg-[#D1FAE5] py-[2px] px-3">{{ $alat->status }}</span></td>
+                <td class="!py-[18px] align-middle">
+                    <div class="flex gap-2 text-center !align-center">
+                        <div>
+                            <a href="#" class="rounded-lg p-2 bg-[#FEF3C7]">
+                                <i class="text-[#F59E0B] fa-solid fa-pen-to-square"></i>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#"
+                                onclick="actionDestroy('{{ route('admin.alat.destroy', $alat->id) }}')"
+                                class="bg-[#FEE2E2] rounded-lg p-2">
+                                <i class="text-[#DC2626] fa-solid fa-trash"></i>
+                            </a>
+                        </div>
+                    </div>
                 </td>
             </tr>
             @empty
