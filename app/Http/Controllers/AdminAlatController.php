@@ -11,10 +11,26 @@ use Illuminate\Support\Str;
 class AdminAlatController extends Controller
 {
     
-    public function index()
-    {
-        $alats = Alat::latest()->get();
-        return view('pages.admin.kelola_alat.index', compact('alats'));
+   public function index(Request $request)
+   {
+        $query = Alat::query();
+
+        if ($request->filled('search')) {
+            $query->where('nama_alat', 'like', '%'.$request->search.'%');
+        }
+
+        if ($request->filled('kategori') && $request->kategori != 'all') {
+            $query->where('kategori', $request->kategori);
+        }
+
+        if ($request->filled('status') && $request->status != 'all') {
+            $query->where('status', $request->status);
+        }
+
+        $alats = $query->paginate(5); 
+        $kategoris = Alat::select('kategori')->distinct()->pluck('kategori');
+
+        return view('pages.admin.kelola_alat.index', compact('alats', 'kategoris'));
     }
 
     
@@ -51,6 +67,32 @@ class AdminAlatController extends Controller
         ]);
 
         return redirect()->route('admin.alat.index')->with('success', 'Data alat berhasil ditambah');
+    }
+
+   public function edit(Alat $alat)
+    {
+        return view('pages.admin.kelola_alat.edit', compact('alat'));
+    }
+
+    public function update(Request $request, Alat $alat)
+    {
+        $request->validate([
+            'nama_alat' => 'required|string',
+            'kategori' => 'required|string',
+            'harga' => 'required|numeric|min:0',
+            'stok' => 'required|integer|min:0',
+            'foto' => 'nullable|file|mimes:jpg,jpeg,webp,png|max:2048',
+        ]);
+
+        $data = $request->all();
+
+        // upload foto baru
+        $fotoName = null;
+
+        
+
+        $alat->update($data);
+        return redirect()->route('admin.alat.index')->with('success', 'Alat berhasil diupdate');
     }
 
     public function destroy(string $id)
