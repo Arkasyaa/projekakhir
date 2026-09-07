@@ -5,9 +5,9 @@
 @section('content')
 <div class="bg-[#FCFBF6]>
 <div class="max-w-6xl mx-auto px-4 lg:px-10 py-20">
-        <div class="flex items-center justify-between">       
+        <div class="flex items-center justify-between">
             <h1 class="font-['Outfit'] text-[30px] font-bold py-[40px] ">Kelola Alat</h1>
-            <a href="{{ route('admin.alat.create') }}" 
+            <a href="{{ route('admin.alat.create') }}"
             class="flex items-center gap-1.5 px-4 py-2 bg-[#C75A3A] hover:bg-[#B34E31] text-white text-sm font-semibold rounded-lg shadow-sm transition">
                 <i class="fa-solid fa-plus"></i>
                 <span>TAMBAH ALAT BARU</span>
@@ -81,9 +81,7 @@
     </div> --}}
 
 </div>
-<<<<<<< HEAD
 </div>
-=======
 <form action="" id="form-destroy" method="POST">
     @csrf
     @method('DELETE')
@@ -111,5 +109,4 @@ function actionDestroy(url) {
     });
 }
 </script>
->>>>>>> ea06c2ae86e597a242fa10d0e3f5aca06462f018
 @endsection
