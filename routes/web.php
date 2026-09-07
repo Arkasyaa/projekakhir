@@ -27,7 +27,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // admin dan user
 Route::middleware('auth')->group(function () {
-    Route::get('/admin', function () { 
+    Route::get('/admin', function () {
         return redirect()->route('admin.alat.index');
     })->name('admin');
 
@@ -39,10 +39,11 @@ Route::middleware('auth')->group(function () {
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 });
-
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('alat', AdminAlatController::class);
+});
 
 Route::get('admin/kelola_rental', [KelolaRentalController::class, 'index'])->name('admin.kelola_rental.index');
-
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('alat', AdminAlatController::class);

@@ -81,13 +81,26 @@ class AdminAlatController extends Controller
             'kategori' => 'required|string',
             'harga' => 'required|numeric|min:0',
             'stok' => 'required|integer|min:0',
+            'status' => 'required|string',
             'foto' => 'nullable|file|mimes:jpg,jpeg,webp,png|max:2048',
         ]);
 
         $data = $request->all();
 
-        // upload foto baru
-        $fotoName = null;
+            // 1. CEK ADA UPLOAD GAMBAR BARU GA
+        if ($request->hasFile('foto')) {
+            // 2. HAPUS GAMBAR LAMA BIAR GA NUMPUK
+            if($alat->foto && file_exists(public_path('storage/images_alat/'.$alat->foto))){
+                unlink(public_path('storage/images_alat/'.$alat->foto));
+            }
+
+            $image = $request->file('foto');
+            $fotoName = Str::random(16) . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('images_alat', $fotoName, 'public');
+            $data['foto'] = $fotoName; // MASUKIN NAMA FILE BARU KE DATA
+        } else {
+            unset($data['foto']); // biar foto lama ga ketimpa null
+        }
 
         
 

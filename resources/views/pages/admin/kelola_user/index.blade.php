@@ -52,18 +52,17 @@
                         <div>{{ $user->name }}</div>
                         <div>{{ $user->email }}</div>
                     </td>
-                    <td>{{ $user->no_hp ?? '-' }}</td>
-                    <td>{{ $user->alamat ?? '-' }}</td>
+                    <td>{{ $user->no_hp }}</td>
+                    <td>{{ $user->alamat }}</td>
                     <td>{{ $user->total_sewa ?? 0 }} Kali sewa</td>
                     <td>
                         <a href="{{ route('admin.kelola_user.show', $user->id) }}">Lihat</a>
                         <a href="{{ route('admin.kelola_user.edit', $user->id) }}">Edit</a>
                         <form action="{{ route('admin.kelola_user.destroy', $user->id) }}"
-                              method="POST"
-                              onsubmit="return confirm('Yakin ingin menghapus user ini?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit">Hapus</button>
+                            <a href="#"
+                            onclick="actionDestroy('{{ route('admin.alat.destroy', $user->id) }}')">
+                            Hapus
+                            </a>
                         </form>
                     </td>
                 </tr>
@@ -75,12 +74,39 @@
         </tbody>
     </table>
 
-    <div>
+        {{-- <div>
         <p>
-            Menampilkan {{ $users->firstItem() ?? 0 }}-{{ $users->lastItem() ?? 0 }}
-            dari {{ $users->total() }} entri
+        Menampilkan {{ $users->firstItem() ?? 0 }}-{{ $users->lastItem() ?? 0 }}
+        dari {{ $users->total() }} entri
         </p>
         {{ $users->links() }}
-    </div>
+        </div> --}}
 
+<form action="" id="form-destroy" method="POST">
+    @csrf
+    @method('DELETE')
+</form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.26.25/sweetalert2.all.min.js"></script>
+
+<script>
+function actionDestroy(url) {
+    Swal.fire({
+        title: 'Yakin ingin menghapus?',
+        text: 'Data yang dihapus tidak bisa dikembalikan!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Hapus!',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $('#form-destroy').attr('action', url);
+            $('#form-destroy').submit();
+        }
+    });
+}
+</script>
 @endsection

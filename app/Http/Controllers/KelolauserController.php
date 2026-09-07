@@ -25,8 +25,8 @@ class KelolaUserController extends Controller
             'name'     => 'required|string|max:255',
             'email'    => 'required|email|unique:users,email',
             'password' => 'required|min:8',
-            'no_hp'    => 'nullable|string|max:20',
-            'alamat'   => 'nullable|string',
+            'no_hp'    => 'required|string|max:20',
+            'alamat'   => 'required|string',
         ]);
 
         $validated['password'] = bcrypt($validated['password']);
@@ -54,8 +54,8 @@ class KelolaUserController extends Controller
         $validated = $request->validate([
             'name'   => 'required|string|max:255',
             'email'  => 'required|email|unique:users,email,' . $kelola_user->id,
-            'no_hp'  => 'nullable|string|max:20',
-            'alamat' => 'nullable|string',
+            'no_hp'  => 'required|string|max:20',
+            'alamat' => 'required|string',
         ]);
 
         $kelola_user->update($validated);

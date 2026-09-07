@@ -19,7 +19,7 @@
         <div class="mb-3">
             <label>Foto Sekarang</label><br>
             @if($alat->foto)
-                <img src="{{ asset('storage/' . $alat->foto) }}" alt="{{ $alat->nama_alat }}" class="img-thumbnail mb-2" style="width: 150px; height: 150px; object-fit: cover;">
+                <img src="{{ asset('storage/images_alat/' . $alat->foto) }}" alt="{{ $alat->nama_alat }}" class="img-thumbnail mb-2" style="width: 150px; height: 150px; object-fit: cover;">
             @else
                 <p class="text-muted">Belum ada foto</p>
             @endif
