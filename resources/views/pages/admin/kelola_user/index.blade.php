@@ -45,10 +45,7 @@
                 <tr>
                     <td>{{ $users->firstItem() + $index }}</td>
                     <td>
-                        <img
-                            src="{{ $user->foto_profil ? asset('storage/'.$user->foto_profil) : asset('images/default-avatar.png') }}"
-                            alt="{{ $user->name }}"
-                        >
+                        <img src="{{ asset('images/profile-default.png') }}" alt="Profil User" class="w-24 h-24 rounded-full object-cover">
                         <div>{{ $user->name }}</div>
                         <div>{{ $user->email }}</div>
                     </td>
@@ -58,7 +55,7 @@
                     <td>
                         <a href="{{ route('admin.kelola_user.show', $user->id) }}">Lihat</a>
                         <a href="{{ route('admin.kelola_user.edit', $user->id) }}">Edit</a>
-                        <form action="{{ route('admin.kelola_user.destroy', $user->id) }}"
+                        <form action="{{ route('admin.kelola_user.destroy', $user->id) }}">
                             <a href="#"
                             onclick="actionDestroy('{{ route('admin.alat.destroy', $user->id) }}')">
                             Hapus
