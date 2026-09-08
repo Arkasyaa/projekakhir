@@ -5,14 +5,14 @@
 @section('content')
 <div class="bg-[#FCFBF6]">
 <div class="max-w-6xl mx-auto px-4 lg:px-10 py-20">
-        <div class="flex items-center justify-between">       
+    <div class="flex items-center justify-between">       
             <h1 class="font-['Outfit'] text-[30px] font-bold py-[40px] ">Kelola Alat</h1>
             <a href="{{ route('admin.alat.create') }}" 
             class="flex items-center gap-1.5 px-4 py-2 bg-[#C75A3A] hover:bg-[#B34E31] text-white text-sm font-semibold rounded-lg shadow-sm transition">
                 <i class="fa-solid fa-plus"></i>
                 <span>TAMBAH ALAT BARU</span>
             </a>
-        </div>
+    </div>
 
     <div>
         <div>
@@ -87,7 +87,7 @@
                             <td class="!py-[18px] align-middle">
                                 <div class="flex gap-2 text-center !align-center">
                                     <div>
-                                        <a href="#" class="rounded-lg p-2 bg-[#FEF3C7]">
+                                        <a href="{{ route('admin.alat.edit', $alat->id) }}" class="rounded-lg p-2 bg-[#FEF3C7]">
                                             <i class="text-[#F59E0B] fa-solid fa-pen-to-square"></i>
                                         </a>
                                     </div>
@@ -117,18 +117,8 @@
                     </div>
                 
                 </div>
-            </div>
         </div>
-
-    {{-- <div>
-        <p>
-            Menampilkan {{ $alats->firstItem() ?? 0 }}-{{ $alats->lastItem() ?? 0 }}
-            dari {{ $alats->total() }} entri
-        </p>
-        {{ $alats->links() }}
-    </div> --}}
-
-</div>
+    </div>
 </div>
 </div>
 <form action="" id="form-destroy" method="POST">

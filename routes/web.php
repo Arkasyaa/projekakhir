@@ -56,4 +56,5 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
 Route::resource('kelola_user', KelolauserController::class);
 });
 
+Route::get('/katalog', [UserAlatController::class, 'index'])->name('katalog.index');
 

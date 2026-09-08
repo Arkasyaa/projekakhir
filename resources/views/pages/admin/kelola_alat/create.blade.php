@@ -17,7 +17,14 @@
         </div>
         <div class="mb-3">
             <label>Kategori</label>
-            <input type="text" name="kategori" class="form-control" required>
+            <select name="kategori" class="form-control" required>
+                <option value="">-- Pilih Kategori --</option>
+                <option value="Pakaian">Pakaian</option>
+                <option value="Tas">Tas</option>
+                <option value="Alat Camp">Alat Camp</option>
+                <option value="Alat Masak">Alat Masak</option>
+                <option value="Lain Lain">Lain Lain</option>
+            </select>
         </div>
         <div class="mb-3">
             <label>Harga</label>
