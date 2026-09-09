@@ -52,12 +52,19 @@
                             <p class="text-danger fw-bold">Rp{{ number_format($alat->harga) }}/hari</p>
                             
                             <div class="d-flex justify-content-between">
-                                <div>
-                                    <button class="btn btn-sm border">-</button>
-                                    <span class="mx-2">1</span>
-                                    <button class="btn btn-sm border">+</button>
-                                </div>
-                                <button class="btn btn-sm btn-dark">Masukan Keranjang</button>
+                                 <form action="{{ route('keranjang.store') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="alat_id" value="{{ $alat->id }}">
+                                    
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="input-group input-group-sm" style="width: 100px;">
+                                            <button type="button" class="btn btn-outline-secondary btn-minus">-</button>
+                                            <input type="text" name="jumlah" value="1" class="form-control text-center jumlah" readonly>
+                                            <button type="button" class="btn btn-outline-secondary btn-plus">+</button>
+                                        </div>
+                                        <button type="submit" class="btn btn-sm btn-dark">Masukan Keranjang</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -68,9 +75,22 @@
         <p class="text-center">Belum ada alat di kategori ini</p>
     @endforelse
 </div>
-         
+</div>
+<script>
+    document.querySelectorAll('.btn-plus').forEach(button => {
+        button.addEventListener('click', function() {
+            let input = this.parentElement.querySelector('.jumlah');
+            input.value = parseInt(input.value) + 1;
+        });
+    });
 
-    </div>
-</div>
-</div>
+    document.querySelectorAll('.btn-minus').forEach(button => {
+        button.addEventListener('click', function() {
+            let input = this.parentElement.querySelector('.jumlah');
+            if(parseInt(input.value) > 1){
+                input.value = parseInt(input.value) - 1;
+            }
+        });
+    });
+</script>
 @endsection
