@@ -14,8 +14,9 @@
     </ul>
 
     <div class="flex items-center gap-3">
-      
-        <a class="fa-solid fa-cart-shopping">
+
+        <a href="{{ route('keranjang.index') }}">
+        <i class="fa-solid fa-cart-shopping"></i>
         </a>
 
       

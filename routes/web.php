@@ -10,6 +10,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KelolaRentalController;
 use App\Http\Controllers\AdminAlatController;
 use App\Http\Controllers\KelolauserController;
+use App\Http\Controllers\KeranjangController;
+
+
 
 // Halaman Home
 Route::get('/', function () {
@@ -39,9 +42,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 });
-Route::prefix('admin')->name('admin.')->group(function () {
-    Route::resource('alat', AdminAlatController::class);
-});
+
 
 Route::get('admin/kelola_rental', [KelolaRentalController::class, 'index'])->name('admin.kelola_rental.index');
 
@@ -56,4 +57,6 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
 Route::resource('kelola_user', KelolauserController::class);
 });
 
-
+Route::get('/katalog', [UserAlatController::class, 'index'])->name('katalog.index');
+Route::resource('keranjang', KeranjangController::class);
+Route::post('/sewa/checkout', [SewaController::class, 'checkout'])->name('sewa.checkout'); 

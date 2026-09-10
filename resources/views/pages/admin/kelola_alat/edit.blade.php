@@ -31,9 +31,16 @@
         </div>
 
         <div class="mb-3">
+            <div class="mb-3">
             <label>Kategori</label>
-            <input type="text" name="kategori" class="form-control" value="{{ old('kategori', $alat->kategori) }}" required>
-            @error('kategori') <small class="text-danger">{{ $message }}</small> @enderror
+            <select name="kategori" class="form-control" required>
+                <option value="">-- Pilih Kategori --</option>
+                <option value="Pakaian" {{ $alat->kategori == 'Pakaian' ? 'selected' : '' }}>Pakaian Outdoor</option>
+                <option value="Tas" {{ $alat->kategori == 'Tas' ? 'selected' : '' }}>Tas Outdoor</option>
+                <option value="Alat Camp" {{ $alat->kategori == 'Alat Camp' ? 'selected' : '' }}>Alat Camp</option>
+                <option value="Alat Masak" {{ $alat->kategori == 'Alat Masak' ? 'selected' : '' }}>Alat Masak</option>
+                <option value="Lain Lain" {{ $alat->kategori == 'Lain Lain' ? 'selected' : '' }}>Lain Lain</option>
+            </select>
         </div>
 
         <div class="mb-3">

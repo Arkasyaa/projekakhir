@@ -3,15 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Alat;
 
 class UserAlatController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request) 
     {
-        return view ('pages.user.daftar_alat');
+       
+        $kategoris = Alat::select('kategori')->distinct()->pluck('kategori');
+
+        $alats = Alat::where('stok', '>', 0)
+                    ->when($request->kategori && $request->kategori != 'all', function($q) use ($request){
+                        $q->where('kategori', $request->kategori);
+                    })
+                    ->latest() 
+                    ->get()
+                    ->groupBy('kategori');
+
+        return view('pages.user.daftar_alat', compact('alats', 'kategoris'));
     }
 
     /**
