@@ -3,7 +3,7 @@
 @section('title', 'Kelola Alat')
 
 @section('content')
-<div class="container py-5">
+<div class="container py-10">
     <h2>Keranjang Anda</h2>
     <p>Daftar Barang Sewa</p>
 
@@ -91,22 +91,23 @@
 </div>
 
 <script>
-// JS buat tombol +/- auto submit
-document.querySelectorAll('.btn-plus').forEach(btn => {
-    btn.onclick = function() {
-        let input = this.parentElement.querySelector('.jumlah');
-        input.value = parseInt(input.value) + 1;
-        this.closest('form').submit();
-    }
-});
-document.querySelectorAll('.btn-minus').forEach(btn => {
-    btn.onclick = function() {
-        let input = this.parentElement.querySelector('.jumlah');
-        if(parseInt(input.value) > 1){
-            input.value = parseInt(input.value) - 1;
+
+    document.querySelectorAll('.btn-plus').forEach(btn => {
+        btn.onclick = function() {
+            let input = this.parentElement.querySelector('.jumlah');
+            input.value = parseInt(input.value) + 1;
             this.closest('form').submit();
         }
-    }
-});
+    });
+    document.querySelectorAll('.btn-minus').forEach(btn => {
+        btn.onclick = function() {
+            let input = this.parentElement.querySelector('.jumlah');
+            if(parseInt(input.value) > 1){
+                input.value = parseInt(input.value) - 1;
+                this.closest('form').submit();
+            }
+        }
+    });
+
 </script>
 @endsection
