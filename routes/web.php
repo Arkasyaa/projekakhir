@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function () {
         return redirect()->route('admin.alat.index');
     })->name('admin');
 
-    Route::get('/home', [UserController::class, 'index']);
+    Route::get('/home', [UserController::class, 'index'])->name('home');
 });
 
 Route::get('/daftar_alat', [UserAlatController::class, 'index'])->name('daftar.alat');
