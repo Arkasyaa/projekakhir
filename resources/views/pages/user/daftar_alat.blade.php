@@ -9,14 +9,14 @@
 
         <!-- Breadcrumb -->
         <nav class="text-sm text-gray-500 mb-6">
-            <a href="#" class="hover:text-emerald-700">Beranda</a>
+            <a href="{{ route('home') }}#home" class="hover:text-emerald-700">Beranda</a>
             <span class="mx-2">></span>
-            <a href="#" class="hover:text-emerald-700">Katalog</a>
+            <a href="{{ route('home') }}#katalog" class="hover:text-emerald-700">Katalog</a>
             <span class="mx-2">></span>
             <span class="text-[#B86B4B] font-medium">Detail Katalog</span> 
         </nav>
-         <div class="flex items-center gap-3 mb-2">
-            <a href="#" class="text-2xl">
+        <div class="flex items-center gap-3 mb-2">
+            <a href="{{ route('home') }}#katalog" class="text-2xl">
                 <i class="fa-solid fa-arrow-left"></i> 
             </a>
             <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Detail Katalog</h1>
@@ -25,19 +25,21 @@
             Pilih dan sesuaikan perlengkapan hiking & camping terbaik untuk ekspedisi tangguh Anda.
         </p>
         
-       <div class="mb-4 d-flex gap-2 flex-wrap">
-        <a href="{{ route('katalog.index') }}" class="btn rounded-pill {{ !request('kategori') ? 'btn-dark' : 'btn-outline-dark' }}">Semua</a>
+        <div class="mb-4 d-flex gap-2 flex-wrap">
+        <a href="{{ route('katalog.index') }}" class="btn rounded-pill {{ !request('kategori') ? 'btn-secondary' : 'btn-outline-secondary' }}">Semua</a>
         @foreach($kategoris as $kat)
             <a href="{{ route('katalog.index', ['kategori' => $kat]) }}" 
                class="btn rounded-pill {{ request('kategori') == $kat ? 'btn-dark' : 'btn-outline-dark' }}">
                {{ $kat }}
             </a>
         @endforeach
-    </div>
+        </div>
 
     <!-- LOOP PER KATEGORI -->
     @forelse($alats as $namaKategori => $listAlat)
-        <h4 class="mt-5 mb-3">| {{ $namaKategori }}</h4>
+        <h4 class="mt-6 mb-4 pl-3 border-l-4 border-[#E67E22] text-xl font-semibold font-['Instrument_Sans'] text-zinc-900">
+            {{ $namaKategori }}
+        </h4>
         <div class="row">
             @foreach($listAlat as $alat)
                 <div class="col-md-4">
@@ -62,7 +64,9 @@
                                             <input type="text" name="jumlah" value="1" class="form-control text-center jumlah" readonly>
                                             <button type="button" class="btn btn-outline-secondary btn-plus">+</button>
                                         </div>
-                                        <button type="submit" class="btn btn-sm btn-dark">Masukan Keranjang</button>
+                                        <div class="align-items-righ">
+                                            <button type="submit" class="btn btn-sm btn-dark">Masukan Keranjang</button>
+                                        </div>
                                     </div>
                                 </form>
                             </div>

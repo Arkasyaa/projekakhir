@@ -1,51 +1,29 @@
 <header class="fixed inset-x-0 top-0 z-50 transition-all duration-300 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md shadow-sm shadow-black/5">
   <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between" aria-label="Main navigation">
 
-    <a class="font-['DM_Serif_Display'] font-bold text-xl tracking-tight relative z-10">
-      <span class="text-[#285A4D] text-[20px] font-normal tracking-[1px] " >ZansOutdoor.</span>
+    {{-- LOGO --}}
+    <a href="{{ route('home') }}" class="font-['DM_Serif_Display'] font-bold text-xl tracking-tight relative z-10">
+      <span class="text-[#285A4D] text-[20px] font-normal tracking-[1px]">ZansOutdoor.</span>
     </a>
 
     <ul class="hidden md:flex items-center gap-8 text-sm" role="list">
-      <li><a href="#home" class="font-['Instrument_Sans'] nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='services'?'on !text-zinc-900 dark:!text-white':''">Home</a></li>
-      <li><a href="#katalog"     class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='work'?'on !text-zinc-900 dark:!text-white':''">Katalog</a></li>
-      <li><a href="#keunggulan"   class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='about'?'on !text-zinc-900 dark:!text-white':''">Keunggulan</a></li>
-      <li><a href="#cara_sewa" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='reviews'?'on !text-zinc-900 dark:!text-white':''">Cara Sewa</a></li>
-      <li><a href="#tentang_kami"    class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='blog'?'on !text-zinc-900 dark:!text-white':''">Tentang Kami</a></li>
+      <li><a href="{{ route('home') }}#home" class="font-['Instrument_Sans'] text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">Home</a></li>
+      <li><a href="{{ route('home') }}#katalog" class="font-['Instrument_Sans'] text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">Katalog</a></li>
+      <li><a href="{{ route('home') }}#keunggulan" class="font-['Instrument_Sans'] text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">Keunggulan</a></li>
+      <li><a href="{{ route('home') }}#cara_sewa" class="font-['Instrument_Sans'] text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">Cara Sewa</a></li>
+      <li><a href="{{ route('home') }}#tentang_kami" class="font-['Instrument_Sans'] text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">Tentang Kami</a></li>
     </ul>
 
     <div class="flex items-center gap-3">
-
-        <a href="{{ route('keranjang.index') }}">
-        <i class="fa-solid fa-cart-shopping"></i>
+        <a href="{{ route('keranjang.index') }}" class="hover:text-[#285A4D]">
+          <i class="fa-solid fa-cart-shopping"></i>
         </a>
-
-      
-        <a class="fa-solid fa-history">
+        {{-- <a href="{{ route('riwayat.index') }}" class="hover:text-[#285A4D]">
+          <i class="fa-solid fa-history"></i>
+        </a> --}}
+        <a href="{{ route('profile') }}" class="hover:text-[#285A4D]">
+          <i class="fa-solid fa-user"></i>
         </a>
-
-    <div>
-        <a href="{{ route('profile') }}">
-        <i class="fa-solid fa-user"></i>
-        </a>
-    </div>
     </div>
   </nav>
-
-  <!-- mobile menu -->
-  <div x-show="mm" x-cloak
-    x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
-    x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2"
-    class="md:hidden bg-white dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-900">
-    <ul class="flex flex-col px-6 py-5 gap-4 text-sm font-medium" role="list">
-      <li><a href="#services" @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Services</a></li>
-      <li><a href="#work"    @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Work</a></li>
-      <li><a href="#about"   @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">About</a></li>
-      <li><a href="#reviews" @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Reviews</a></li>
-      <li><a href="#blog"    @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Blog</a></li>
-      <li><a href="#contact" @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Contact</a></li>
-      <li class="pt-2 border-t border-zinc-100 dark:border-zinc-900">
-        <a href="#contact" @click="mm=false" class="inline-flex shimmer bg-accent text-white font-medium text-sm px-5 py-2.5 rounded-full">Hire me →</a>
-      </li>
-    </ul>
-  </div>
 </header>
