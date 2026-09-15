@@ -3,7 +3,7 @@
 @section('title', 'Kelola Alat')
 
 @section('content')
-<div class="container py-10">
+<div class="container py-20">
     <h2>Keranjang Anda</h2>
     <p>Daftar Barang Sewa</p>
 
