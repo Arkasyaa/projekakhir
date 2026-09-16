@@ -9,14 +9,10 @@
     <title>Login | ZanzOutdoor</title>
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    {{-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> --}}
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
-        rel="stylesheet"
-    >
-
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -137,7 +133,7 @@
                     <form method="POST" action="{{ route('login.post') }}" class="space-y-4">
                         @csrf
                         <div>
-                            <label for="email" class="block text-xs font-semibold text-charcoal mb-1.5">
+                            <label for="email" class="block text-xs font-semibold text-charcoal">
                                 Email
                             </label> 
                             <input type="email" id="email" name="email" value="{{ old('email') }}"
@@ -152,13 +148,12 @@
                             <label for="password" class="block text-xs font-semibold text-charcoal mb-1.5">
                                 Password
                             </label>
-
-
                             <input type="password" id="password" name="password"
                                 placeholder="Masukkan password" required
                                 class="input-field w-full h-11 px-3.5 rounded-lg border border-gray-200
                                        bg-gray-50 text-sm text-charcoal outline-none placeholder:text-gray-400">
                         </div>
+                        
                         <div class="flex items-center justify-between pt-1">
                             <label class="flex items-center gap-2 cursor-pointer">
                                 <input type="checkbox" name="remember" class="w-3.5 h-3.5 rounded border-gray-300 text-forest focus:ring-forest">
