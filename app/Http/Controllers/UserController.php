@@ -10,7 +10,6 @@ class UserController extends Controller
 
     public function index()
     {
-        // cek biar admin gabisa masuk ke dashboard user
         if (Auth::user()->role == 'admin') {
             return redirect()->route('admin.alat.index');
         }
