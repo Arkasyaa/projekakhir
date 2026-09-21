@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class KelolaUserController extends Controller
 {
-        public function index(Request $request)
+    public function index(Request $request)
     {
         $users = User::where('role', 'user')->paginate(5);
         return view('pages.admin.kelola_user.index', compact('users'));
