@@ -27,7 +27,7 @@ class AdminAlatController extends Controller
             $query->where('status', $request->status);
         }
 
-        $alats = $query->paginate(5); 
+        $alats = $query->paginate(5);
         $kategoris = Alat::select('kategori')->distinct()->pluck('kategori');
 
         return view('pages.admin.kelola_alat.index', compact('alats', 'kategoris'));
@@ -87,19 +87,17 @@ class AdminAlatController extends Controller
 
         $data = $request->all();
 
-            // 1. CEK ADA UPLOAD GAMBAR BARU GA
+          
         if ($request->hasFile('foto')) {
-            // 2. HAPUS GAMBAR LAMA BIAR GA NUMPUK
             if($alat->foto && file_exists(public_path('storage/images_alat/'.$alat->foto))){
                 unlink(public_path('storage/images_alat/'.$alat->foto));
             }
-
             $image = $request->file('foto');
             $fotoName = Str::random(16) . '.' . $image->getClientOriginalExtension();
             $image->storeAs('images_alat', $fotoName, 'public');
-            $data['foto'] = $fotoName; // MASUKIN NAMA FILE BARU KE DATA
+            $data['foto'] = $fotoName; 
         } else {
-            unset($data['foto']); // biar foto lama ga ketimpa null
+            unset($data['foto']); 
         }
 
         
