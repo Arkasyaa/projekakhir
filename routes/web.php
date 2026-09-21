@@ -11,6 +11,7 @@ use App\Http\Controllers\KelolaRentalController;
 use App\Http\Controllers\AdminAlatController;
 use App\Http\Controllers\KelolauserController;
 use App\Http\Controllers\KeranjangController;
+use App\Http\Controllers\RiwayatRentalController;
 
 
 
@@ -59,4 +60,9 @@ Route::resource('kelola_user', KelolauserController::class);
 
 Route::get('/katalog', [UserAlatController::class, 'index'])->name('katalog.index');
 Route::resource('keranjang', KeranjangController::class);
-Route::post('/sewa/checkout', [SewaController::class, 'checkout'])->name('sewa.checkout'); 
+Route::post('/sewa/checkout', [SewaController::class, 'checkout'])->name('sewa.checkout');
+
+Route::middleware('auth')->group(function () {
+Route::get('/riwayat', [RiwayatRentalController::class, 'index'])->name('riwayat.index');
+Route::get('/riwayat/{id}', [RiwayatRentalController::class, 'show'])->name('riwayat.show');
+});
