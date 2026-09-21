@@ -19,6 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 // auth routs
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register'])->name('register.post');
@@ -35,14 +36,11 @@ Route::middleware('auth')->group(function () {
     })->name('admin');
 
     Route::get('/home', [UserController::class, 'index'])->name('home');
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 });
 
 Route::get('/daftar_alat', [UserAlatController::class, 'index'])->name('daftar.alat');
-Route::middleware('auth')->group(function () {
-Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
-});
-
 
 Route::get('admin/kelola_rental', [KelolaRentalController::class, 'index'])->name('admin.kelola_rental.index');
 

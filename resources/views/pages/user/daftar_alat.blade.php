@@ -64,7 +64,7 @@
                                             <input type="text" name="jumlah" value="1" class="form-control text-center jumlah" readonly>
                                             <button type="button" class="btn btn-outline-secondary btn-plus">+</button>
                                         </div>
-                                        <div class="align-items-righ">
+                                        <div class="ml-16">
                                             <button type="submit" class="btn btn-sm btn-dark">Masukan Keranjang</button>
                                         </div>
                                     </div>

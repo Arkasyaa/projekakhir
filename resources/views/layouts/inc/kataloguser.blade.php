@@ -29,7 +29,7 @@
         <div class="p-6">
             <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2">Paket Pakaian</h3>
             
-            <p class="text-sm font-semibold text-emerald-800 mb-3">Sewa mulai Rp16.000/2 hari</p>
+            <p class="text-sm font-semibold text-emerald-800 mb-3">Sewa mulai Rp13.000/2 hari</p>
             
             <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
             Jaket, Celana, dan Sepatu untuk kenyamanan pada tubuh Anda.
@@ -56,12 +56,12 @@
 
         <!-- tulisane -->
         <div class="p-6">
-            <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2">Tenda</h3>
+            <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2">Camp</h3>
             
-            <p class="text-sm font-semibold text-emerald-800 mb-3">Sewa mulai Rp16.000/2 hari</p>
+            <p class="text-sm font-semibold text-emerald-800 mb-3">Sewa mulai Rp40.000/2 hari</p>
             
             <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
-            Jaket, Celana, dan Sepatu untuk kenyamanan pada tubuh Anda.
+            Tenda, Matras, dan Sleeping Bag berkualitas untuk kenyamanan saat Anda beristirahat.
             </p>
 
             <a href="{{ route('daftar.alat') }}" class="inline-flex items-center gap-2 text-sm font-medium text-emerald-800 hover:gap-3 transition-all">
@@ -87,10 +87,10 @@
         <div class="p-6">
             <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2">Carrier</h3>
             
-            <p class="text-sm font-semibold text-emerald-800 mb-3">Sewa mulai Rp16.000/2 hari</p>
+            <p class="text-sm font-semibold text-emerald-800 mb-3">Sewa mulai Rp10.000/2 hari</p>
             
             <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
-            Jaket, Celana, dan Sepatu untuk kenyamanan pada tubuh Anda.
+            Carrier, Hydropack, dan Daypack yang nyaman dan berkualitas saat Anda gunakan.
             </p>
 
             <a href="{{ route('daftar.alat') }}" class="inline-flex items-center gap-2 text-sm font-medium text-emerald-800 hover:gap-3 transition-all">
