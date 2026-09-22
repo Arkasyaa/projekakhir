@@ -4,7 +4,9 @@
 
 @section('content')
 <div class="container py-20">
-    <h2>Keranjang Anda</h2>
+    <div class="mt-6 mb-4 pl-3 border-l-4 border-[#E67E22] text-xl font-semibold font-['Instrument_Sans'] text-zinc-900">
+        <h1>Keranjang Anda</h1>
+    </div>
     <p>Daftar Barang Sewa</p>
 
     <div class="row">

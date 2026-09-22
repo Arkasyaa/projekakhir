@@ -24,6 +24,10 @@
         <p class="text-gray-600 mb-8">
             Pilih dan sesuaikan perlengkapan hiking & camping terbaik untuk ekspedisi tangguh Anda.
         </p>
+         
+        @if(session('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
         
         <div class="mb-4 d-flex gap-2 flex-wrap">
         <a href="{{ route('katalog.index') }}" class="btn rounded-pill {{ !request('kategori') ? 'btn-secondary' : 'btn-outline-secondary' }}">Semua</a>
