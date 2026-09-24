@@ -42,10 +42,9 @@
                 <table class="table border rounded-lg border-[#5C645D] overflow-hidden w-full table-bordered font-['Instrument_Sans']">
                     <thead>
                         <tr class="font-['Instrument_Sans'] text-center text-[15px] font-semibold">
-                            <th class="!text-[#5C645D]">No</th>
-                            <th class="!text-[#5C645D]">PROFIL PELANGGAN</th>
-                            <th class="!text-[#5C645D]">NO HP</th>
-                            <th class="!text-[#5C645D]">ALAMAT RUMAH</th>
+                            <th class="!text-[#5C645D]">NO</th>
+                            <th class="!text-[#5C645D]">NAMA</th>
+                            <th class="!text-[#5C645D]">EMAIL</th>
                             <th class="!text-[#5C645D]">TOTAL SEWA</th>
                             <th class="!text-[#5C645D]">AKSI</th>
                         </tr>
@@ -54,9 +53,8 @@
                         @forelse ($users as $index => $user)
                         <tr class="text-center font-['Outfit'] text-center text-[13px] font-semibold">
                             <td class="!py-[18px] align-middle">{{ $loop->iteration }}</td>
-                            <td class="!py-[18px] align-middle font-bold">{{ $user->name }} <div class="font-semibold">{{ $user->email }}</div></td>
-                            <td class="!py-[18px] align-middle font-normal">{{ $user->no_hp }}</td>
-                            <td class="!py-[18px] align-middle font-normal">{{ $user->alamat }}</td>
+                            <td class="!py-[18px] align-middle font-bold">{{ $user->name }}</td>
+                            <td class="!py-[18px] align-middle font-bold">{{ $user->email }}</td>
                             <td class="!py-[18px] align-middle">{{ $user->total_sewa ?? 0 }} Kali sewa</td>
                             <td class="!py-[18px] align-middle">
                                 <div class="flex gap-2 text-center !align-center">
