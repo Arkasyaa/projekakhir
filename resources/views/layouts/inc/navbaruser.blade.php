@@ -18,9 +18,9 @@
         <a href="{{ route('keranjang.index') }}" class="hover:text-[#285A4D]">
           <i class="fa-solid fa-cart-shopping"></i>
         </a>
-        {{-- <a href="{{ route('riwayat.index') }}" class="hover:text-[#285A4D]">
+        <a href="{{ route('riwayat.index') }}" class="hover:text-[#285A4D]">
           <i class="fa-solid fa-history"></i>
-        </a> --}}
+        </a>
         <a href="{{ route('profile') }}" class="hover:text-[#285A4D]">
           <i class="fa-solid fa-user"></i>
         </a>
