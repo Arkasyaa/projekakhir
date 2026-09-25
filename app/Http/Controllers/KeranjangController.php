@@ -39,7 +39,6 @@ class KeranjangController extends Controller
         $jumlah = $request->jumlah;
 
         if(isset($keranjang[$alat_id])) {
-            // kalau udah ada, jumlahnya ditambah
             $keranjang[$alat_id]['jumlah'] += $jumlah;
         } else {
             $alat = Alat::find($alat_id);

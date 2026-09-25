@@ -8,10 +8,18 @@ use Illuminate\Http\Request;
 
 class KelolaUserController extends Controller
 {
-        public function index(Request $request)
+    public function index(Request $request)
     {
-        $users = User::where('role', 'user')->paginate(5);
-        return view('pages.admin.kelola_user.index', compact('users'));
+    $query = User::where('role', 'user');
+
+    if ($request->filled('search')) {
+        $query->where('name', 'like', '%'.$request->search.'%');
+    }
+
+    $users = $query->paginate(5);
+
+    return view('pages.admin.kelola_user.index', compact('users'));
+
     }
 
     public function create()

@@ -48,6 +48,10 @@ tailwind.config = {
         @yield('content') <!-- ISI HALAMANNYA DI SINI -->
     </main>
 
+    @include('layouts.inc.footer')
+
+    
+
 
 
 <script>
