@@ -101,11 +101,11 @@
             <section class="flex items-center bg-white">
                 <div class="w-full px-7 py-8 sm:px-10 sm:py-10">
                     <div class="mb-7">
-                        <p class="text-forest text-[10px] font-bold uppercase tracking-[0.2em] mb-2">Welcome Back </p>
+                        <p class="text-forest text-[10px] font-bold uppercase tracking-[0.2em] mb-2">Welcome</p>
                         <h2 class="heading text-charcoal text-2xl font-bold">
-                            Masuk ke akun </h2>
+                            Buat Akun </h2>
                         <p class="text-gray-400 text-xs mt-2">
-                            Masuk untuk melanjutkan ke ZanzOutdoor.</p>
+                            Buat akun untuk melanjutkan ke ZanzOutdoor.</p>
                     </div>
 
                     @if (session('success'))
@@ -122,8 +122,8 @@
                         @csrf
 
                         <div>
-                            <label for="name" class="block text-xs font-semibold text-charcoal mb-1.5">Nama</label><br>
-                            <input type="text" id="name" name="name" value="{{ old('name') }}" required placeholder="Nama..."
+                            <label for="name" class="block text-xs font-semibold text-charcoal mb-1.5">Nama</label>
+                            <input type="text" id="name" name="name" value="{{ old('name') }}" required placeholder="Masukkan Nama"
                                 class="input-field w-full h-11 px-3 rounded-lg border
                                         border-gray-200 bg-gray-50 text-sm
                                         text-charcoal outline-none
@@ -134,7 +134,7 @@
                         </div>
 
                         <div>
-                            <label for="email" class="block text-xs font-semibold text-charcoal mb-1.5">Email</label><br>
+                            <label for="email" class="block text-xs font-semibold text-charcoal mb-1.5">Email</label>
                             <input type="email" id="email" name="email" value="{{ old('email') }}" required placeholder="nama@email.com"
                                 class="input-field w-full h-11 px-3.5 rounded-lg border border-gray-200
                                         bg-gray-50 text-sm text-charcoal outline-none placeholder:text-gray-400">
@@ -154,8 +154,24 @@
                                     bg-gray-50 text-sm text-charcoal outline-none placeholder:text-gray-400"
                                 placeholder="Masukkan password"
                             >
+                        </div>
 
-                            @error('password')
+                        <div>
+                            <label for="password_confirmation" class="block text-xs font-semibold text-charcoal mb-1.5">
+                                Konfirmasi Password
+                            </label>
+
+                            <input 
+                                type="password"
+                                id="password_confirmation"
+                                name="password_confirmation"
+                                required
+                                class="input-field w-full h-11 px-3.5 rounded-lg border border-gray-200
+                                    bg-gray-50 text-sm text-charcoal outline-none placeholder:text-gray-400"
+                                placeholder="Ulangi password"
+                            >
+
+                            @error('password_confirmation')
                                 <p>{{ $message }}</p>
                             @enderror
                         </div>
@@ -170,7 +186,7 @@
                         </div>                
 
                         <button type="submit" class="login-button w-full h-11 rounded-lg bg-forest
-                            text-white text-xs font-semibold tracking-wide shadow-sm"> Masuk ke Akun
+                            text-white text-xs font-semibold tracking-wide shadow-sm"> Buat Akun
                         </button>
                     </form>
 
