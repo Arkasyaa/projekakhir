@@ -12,6 +12,7 @@ use App\Http\Controllers\AdminAlatController;
 use App\Http\Controllers\KelolauserController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\RiwayatRentalController;
+use App\Http\Controllers\SewaController;
 
 
 
@@ -59,6 +60,7 @@ Route::resource('kelola_user', KelolauserController::class);
 Route::get('/katalog', [UserAlatController::class, 'index'])->name('katalog.index');
 Route::resource('keranjang', KeranjangController::class);
 Route::post('/sewa/checkout', [SewaController::class, 'checkout'])->name('sewa.checkout');
+Route::get('/riwayat/{riwayat}', [RiwayatrentalController::class, 'show'])->name('riwayat.show');
 
 Route::middleware('auth')->group(function () {
 Route::get('/riwayat', [RiwayatRentalController::class, 'index'])->name('riwayat.index');

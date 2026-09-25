@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rental;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RiwayatrentalController extends Controller
 {
@@ -11,7 +13,12 @@ class RiwayatrentalController extends Controller
      */
     public function index()
     {
-        //
+        $rentals = Rental::where('user_id', Auth::id())
+        ->with('items.alat')
+        ->latest()
+        ->paginate(5);
+
+        return view('pages.user.riwayat', compact('rentals'));
     }
 
     /**
@@ -33,9 +40,17 @@ class RiwayatrentalController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $riwayat)
     {
-        //
+        $rental = Rental::findOrFail($riwayat);
+
+        if ($rental->user_id !== Auth::id()) {
+        abort(403);
+        }
+
+        $rental->load('items.alat');
+
+        return view('pages.user.riwayat_detail', ['rental' => $rental]);
     }
 
     /**
