@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Alat;
+use App\Models\Rental;
+use Illuminate\Support\Facades\Auth;
 
 class KeranjangController extends Controller
 {
@@ -12,8 +14,14 @@ class KeranjangController extends Controller
      */
     public function index()
     {
-        $keranjang = session()->get('keranjang', []);
-        return view('pages.user.keranjang', compact('keranjang'));
+       $keranjang = session()->get('keranjang', []);   
+
+       $subtotal = 0;
+       foreach ($keranjang as $item) {
+       $subtotal += $item['harga'] * $item['jumlah'];
+    }
+
+       return view('pages.user.keranjang', compact('keranjang', 'subtotal'));
     }
 
     /**
@@ -54,7 +62,7 @@ class KeranjangController extends Controller
         session()->put('keranjang', $keranjang);
         return redirect()->back()->with('success', 'Alat berhasil ditambahkan!');
     }
-    
+
 
     /**
      * Display the specified resource.

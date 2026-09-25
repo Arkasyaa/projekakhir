@@ -6,6 +6,7 @@
 <div class="bg-[#FCFBF6]">
     <div class="max-w-6xl mx-auto px-4 lg:px-10 py-20">
         <h1 class="font-['Outfit'] text-[30px] font-bold py-[30px]">Akun Saya</h1>
+        <div class="flex gap-6 items-start">
             <div class="card bg-base-100 rounded-[24px] items-center" style="width: 400px;">
                 <div class="card-body items-center text-center w-full py-9 px-6">
                     <div class="w-full flex justify-center">
@@ -42,59 +43,67 @@
 
                 </div>
             </div>
-            <div class="card bg-base-100 rounded-[24px] items-center" style="width: 400px;">
-                <div class="card-body items-center text-center w-full py-9 px-6">
-                    <div>
-                        <label>Alamat</label>
-                        <textarea name="address">{{ $user->address }}</textarea>
-                    </div>
 
-                    <button type="submit">
-                        Simpan Perubahan
-                    </button>
-
-                    <h2>Ubah Password</h2>
-
-                    <form action="{{ route("profile.update") }}" method="POST">
-                        @csrf
-                        @method('PUT')
+            <div>
+                <div class="card bg-base-100 rounded-[24px] items-center" style="width: 750px;">
+                    <div class="card-body items-center text-center w-full py-9 px-6">
+                        <div>
+                            <h2>Edit Akun</h2>
+                            <label>Alamat</label>
+                            <textarea name="address">{{ $user->address }}</textarea>
+                        </div>
 
                         <button type="submit">
-                            Ubah Password
+                            Simpan Perubahan
                         </button>
-                        </form>
+                </div> 
+                <div>
+                        <h2>Ubah Password</h2>
 
-                            <div>
-                                <label>Password Lama</label>
-                                <input
-                                    type="password"
-                                    name="current_password"
-                                >
-                            </div>
-
-                            <div>
-                                <label>Password Baru</label>
-                                <input
-                                    type="password"
-                                    name="password"
-                                >
-                            </div>
-
-                            <div>
-                                <label>Konfirmasi Password Baru</label>
-                                <input
-                                    type="password"
-                                    name="password_confirmation"
-                                >
-                            </div>
+                        <form action="{{ route("profile.update") }}" method="POST">
+                            @csrf
+                            @method('PUT')
 
                             <button type="submit">
                                 Ubah Password
                             </button>
+                            </form>
+
+                                <div>
+                                    <label>Password Lama</label>
+                                    <input
+                                        type="password"
+                                        name="current_password"
+                                    >
+                                </div>
+
+                                <div>
+                                    <label>Password Baru</label>
+                                    <input
+                                        type="password"
+                                        name="password"
+                                    >
+                                </div>
+
+                                <div>
+                                    <label>Konfirmasi Password Baru</label>
+                                    <input
+                                        type="password"
+                                        name="password_confirmation"
+                                    >
+                                </div>
+
+                                <button type="submit">
+                                    Ubah Password
+                                </button>
+                            </form>
                         </form>
-                    </form>
+                    </div>
                 </div>
-            </div>   
+            </div>
+
+        </div>
+
     </div>
 </div>
 @endsection
