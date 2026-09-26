@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 
 class KelolaUserController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index(Request $request)
     {
     $query = User::where('role', 'user');
@@ -46,7 +49,10 @@ class KelolaUserController extends Controller
             ->route('admin.kelola_user.index')
             ->with('success', 'User baru berhasil ditambahkan.');
     }
-
+    
+    /**
+     * Display the specified resource.
+     */
     public function show(User $kelola_user)
     {
         return view('pages.admin.kelola_user.show', ['user' => $kelola_user]);

@@ -47,18 +47,23 @@
             <div>
                 <div>
                     <div>
-                        <div  class="card bg-base-100 rounded-[24px] px-20 py-20" style="width: 750px;">
-                            <h2 class="text-left">Edit Akun</h2>
-                            <p>Nama Lengkap</p>
-                            <input type="text" name="name" value="{{ $user->name }}">
-                            <label>Alamat</label>
-                            <textarea name="address">{{ $user->address }}</textarea>
+                        <div  class="card gap-4 bg-base-100 rounded-[24px] px-[30px] py-[30px]" style="width: 750px;">
+                            <h2 class="text-left font-['Outfit'] font-bold text-[20px]">Edit Akun</h2>
+                            <div class="flex flex-col gap-1">
+                            <label class="pl-1.5 font-['Instrument_Sans'] font-semibold text-[12px]">Nama Lengkap</label>
+                            <input class="border border-[1px] rounded-[8px] h-[35px] pl-2 font-['Instrument_Sans'] font-normal text-[13px]" type="text" name="name" value="{{ $user->name }}">
+                            </div>
+                            <div class="flex flex-col gap-1">
+                            <label class="pl-1.5 font-['Instrument_Sans'] font-semibold text-[12px]">Alamat Email</label>
+                            <input class="border-[1px] rounded-[8px] h-[35px] pl-2 font-['Instrument_Sans'] font-normal text-[13px]" type="email" name="email" value="{{ $user->email }}">
+                            </div>
+                            <button class="rounded-[8px] font-['Instrument_Sans'] font-bold text bg-[#D96B27] w-fit px-4 py-1 " type="submit">
+                            Simpan Perubahan
+                            </button>
                         </div>
                     </div>
 
-                        <button type="submit">
-                            Simpan Perubahan
-                        </button>
+                        
                 </div> 
                 <div>
                         <h2>Ubah Password</h2>

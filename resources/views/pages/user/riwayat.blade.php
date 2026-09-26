@@ -3,7 +3,7 @@
 @section('title', 'Riwayat Rental')
 
 @section('content')
-<div class="bg-[#FCFAF6]">
+<div class="bg-[#FCFBF6]">
 <div class="max-w-4xl mx-auto px-4 lg:px-10 py-16">
 
     <h1 class="font-['Outfit'] text-[28px] font-bold mb-8">Riwayat Rental</h1>
@@ -18,6 +18,10 @@
                     <span class="text-[11px] font-semibold rounded-full px-3 py-1 bg-orange-100 text-orange-500">
                         MENUNGGU DIKONFIRMASI
                     </span>
+                @elseif ($rental->status === 'disetujui')
+                    <span class="text-[11px] font-semibold rounded-full px-3 py-1 bg-blue-100 text-blue-500">
+                        DISETUJUI
+                    </span>
                 @elseif ($rental->status === 'dipinjam')
                     <span class="text-[11px] font-semibold rounded-full px-3 py-1 bg-blue-100 text-blue-500">
                         SEDANG DIPINJAM
@@ -30,10 +34,15 @@
                     <span class="text-[11px] font-semibold rounded-full px-3 py-1 bg-green-100 text-green-600">
                         SELESAI
                     </span>
+                @elseif ($rental->status === 'dibatalkan')
+                    <span class="text-[11px] font-semibold rounded-full px-3 py-1 bg-gray-200 text-gray-500">
+                        DIBATALKAN
+                    </span>
                 @endif
             </div>
 
             <div class="flex justify-between items-end">
+
                 <div>
                     <p class="text-[12px] text-gray-400 mb-1">Alat yang Dirental</p>
                     <p class="font-semibold text-[14px] mb-4">
@@ -71,12 +80,25 @@
                     <p class="text-[#D96B27] font-bold text-[18px] mb-4">
                         Rp{{ number_format($rental->total_pembayaran, 0, ',', '.') }}
                     </p>
-                    <a href="{{ route('riwayat.show', $rental->id) }}"
-                       class="inline-block border border-gray-300 rounded-lg px-4 py-2 text-[13px] font-medium hover:bg-gray-50 transition">
-                        Lihat Detail
-                    </a>
+                    <div class="flex gap-2 justify-end">
+                        {{-- @if ($rental->status === 'menunggu_konfirmasi')
+                            <form action="{{ route('riwayat.cancel', $rental->id) }}"
+                                  method="POST"
+                                  onsubmit="return confirm('Yakin ingin membatalkan pesanan ini?');">
+                                @csrf
+                                @method('PATCH')
+                                <button type="submit"
+                                        class="border border-red-300 text-red-500 rounded-lg px-4 py-2 text-[13px] font-medium hover:bg-red-50 transition">
+                                    Batalkan
+                                </button>
+                            </form>
+                        @endif --}}
+                        <a href="{{ route('riwayat.show', $rental->id) }}"
+                           class="inline-block border border-gray-300 rounded-lg px-4 py-2 text-[13px] font-medium hover:bg-gray-50 transition">
+                            Lihat Detail
+                        </a>
+                    </div>
                 </div>
-
             </div>
         </div>
     @empty
@@ -90,7 +112,6 @@
             {{ $rentals->links() }}
         </div>
     @endif
-
 </div>
 </div>
 @endsection
