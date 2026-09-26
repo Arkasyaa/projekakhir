@@ -3,7 +3,7 @@
 @section('title', 'Detail Riwayat')
 
 @section('content')
-<div class="bg-[#FCFAF6]">
+<div class="bg-[#FCFBF6]">
 <div class="max-w-3xl mx-auto px-4 lg:px-10 py-16">
 
     <a href="{{ route('riwayat.index') }}" class="text-sm text-gray-500 hover:text-gray-800">
@@ -22,6 +22,10 @@
                 <span class="text-[11px] font-semibold rounded-full px-3 py-1 bg-orange-100 text-orange-500">
                     MENUNGGU DIKONFIRMASI
                 </span>
+            @elseif ($rental->status === 'disetujui')
+                <span class="text-[11px] font-semibold rounded-full px-3 py-1 bg-blue-100 text-blue-500">
+                    DISETUJUI
+                </span>
             @elseif ($rental->status === 'dipinjam')
                 <span class="text-[11px] font-semibold rounded-full px-3 py-1 bg-blue-100 text-blue-500">
                     SEDANG DIPINJAM
@@ -34,10 +38,10 @@
                 <span class="text-[11px] font-semibold rounded-full px-3 py-1 bg-green-100 text-green-600">
                     SELESAI
                 </span>
-            {{-- @elseif ($rental->status === 'dibatalkan')
+            @elseif ($rental->status === 'dibatalkan')
                 <span class="text-[11px] font-semibold rounded-full px-3 py-1 bg-gray-200 text-gray-500">
                     DIBATALKAN
-                </span> --}}
+                </span>
             @endif
         </div>
 
@@ -98,11 +102,11 @@
             </p>
         </div>
 
-        {{-- @if ($rental->status === 'ditolak' && $rental->catatan)
+        @if ($rental->status === 'ditolak' && $rental->catatan)
             <div class="bg-red-50 border border-red-100 text-red-600 text-[13px] rounded-lg p-3 mb-4">
                 <strong>Alasan ditolak:</strong> {{ $rental->catatan }}
             </div>
-        @endif --}}
+        @endif
 
         {{-- @if ($rental->status === 'menunggu_konfirmasi')
             <form action="{{ route('riwayat.cancel', $rental->id) }}"
@@ -120,3 +124,8 @@
 </div>
 </div>
 @endsection
+
+
+
+
+

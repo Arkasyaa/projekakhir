@@ -44,7 +44,14 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/daftar_alat', [UserAlatController::class, 'index'])->name('daftar.alat');
 
-Route::get('admin/kelola_rental', [KelolaRentalController::class, 'index'])->name('admin.kelola_rental.index');
+Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+Route::get('/kelola_rental', [KelolaRentalController::class, 'index'])->name('kelola_rental.index');
+Route::get('/kelola_rental/{id}', [KelolaRentalController::class, 'show'])->name('kelola_rental.show');
+Route::patch('/kelola_rental/{id}/setuju', [KelolaRentalController::class, 'setuju'])->name('kelola_rental.setuju');
+Route::patch('/kelola_rental/{id}/tolak', [KelolaRentalController::class, 'tolak'])->name('kelola_rental.tolak');
+Route::patch('/kelola_rental/{id}/selesai', [KelolaRentalController::class, 'selesai'])->name('kelola_rental.selesai');
+Route::patch('/kelola_rental/{id}/update-status', [KelolaRentalController::class, 'updateStatus'])->name('kelola_rental.update_status');
+});
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('alat', AdminAlatController::class);
