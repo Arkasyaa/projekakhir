@@ -45,13 +45,16 @@
             </div>
 
             <div>
-                <div class="card bg-base-100 rounded-[24px] items-center" style="width: 750px;">
-                    <div class="card-body items-center text-center w-full py-9 px-6">
-                        <div>
-                            <h2>Edit Akun</h2>
+                <div>
+                    <div>
+                        <div  class="card bg-base-100 rounded-[24px] px-20 py-20" style="width: 750px;">
+                            <h2 class="text-left">Edit Akun</h2>
+                            <p>Nama Lengkap</p>
+                            <input type="text" name="name" value="{{ $user->name }}">
                             <label>Alamat</label>
                             <textarea name="address">{{ $user->address }}</textarea>
                         </div>
+                    </div>
 
                         <button type="submit">
                             Simpan Perubahan
