@@ -223,8 +223,7 @@
 .cara .car3{        
     background-color: #173C34;
     border-radius: 16px;
-    width: 316px;
-    height: 215px;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     padding: 32px 32px;
@@ -276,6 +275,10 @@
 }
 .cara .ke1{
     color: #FFFFFF !important;
+    with-space: nowrap;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'outfit';
 }
 .cara h2 {
     font-family: 'outfit';

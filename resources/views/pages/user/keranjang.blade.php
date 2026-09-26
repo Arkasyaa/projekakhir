@@ -3,14 +3,16 @@
 @section('title', 'Kelola Alat')
 
 @section('content')
-<div class="container py-20">
-    <div class="mt-6 mb-4 pl-3 border-l-4 border-[#E67E22] text-xl font-semibold font-['Instrument_Sans'] text-zinc-900">
-        <h1>Keranjang Anda</h1>
+<div class="bg-[#FCFAF6] container py-20">
+    <div class="mt-6 mb-4 pl-14 border-l-4 border-[#E67E22] text-xl font-semibold font-['Instrument_Sans'] text-zinc-900">
+        <h1 class="font-['Outfit'] font-extrabold text-[30px] pl-3">Keranjang Anda</h1>
     </div>
 
-    <h1 class="text-xl font-semibold">Daftar Barang Sewa</h1>
+    
+    <div class="px-16">
+        <h1 class="text-xl font-['Outfit'] font-semibold">Daftar Barang Sewa</h1>
 
-    <div class="row py-2">
+    <div class=" row py-2">
         <div class="col-lg-8">
 
             @if(session('keranjang') && count(session('keranjang')) > 0)
@@ -24,9 +26,9 @@
                                  width="80"
                                  style="object-fit:cover; border-radius:8px;">
 
-                            <div>
-                                <h6>{{ $item['nama'] }}</h6>
-                                <p class="text-danger">
+                            <div class="d-flex flex-column gap-2">
+                                <h6 class="font-['Outfit'] font-semibold text-[14px]">{{ $item['nama'] }}</h6>
+                                <p class="text-danger font-['Instrument_Sans'] font-normal text-['10px']">
                                     Rp{{ number_format($item['harga']) }}/hari
                                 </p>
                             </div>
@@ -43,8 +45,7 @@
                                 @method('PUT')
 
                                 <button type="button"
-                                        class="btn btn-sm border btn-minus">
-                                    -
+                                    <i class="bg-orange-50 w-fit py-2 px-2 rounded-lg fa-solid fa-minus"></i>
                                 </button>
 
                                 <input type="number"
@@ -55,8 +56,7 @@
                                        readonly>
 
                                 <button type="button"
-                                        class="btn btn-sm border btn-plus">
-                                    +
+                                    <i class="bg-orange-50 w-fit py-2 px-2 rounded-lg fa-solid fa-plus"></i>
                                 </button>
 
                             </form>
@@ -68,8 +68,8 @@
                                 @csrf
                                 @method('DELETE')
 
-                                <button class="btn btn-sm btn-light text-danger">
-                                    🗑️
+                                <button>
+                                    <i class="text-red-500 bg-red-200 w-fit rounded-lg py-2 px-2 fa-solid fa-trash"></i>
                                 </button>
 
                             </form>
@@ -86,81 +86,83 @@
             @endif
 
 
-            <!-- FORM BIODATA -->
-            <h4 class="mt-5 text-xl font-semibold">Formulir Pengambilan & Biodata</h4>
-            <hr class="py-2">
+                <!-- FORM BIODATA -->
+            <div class="bg-[#FFFFFF] px-6 py-4 rounded-lg">
+                <h4 class=" text-xl font-semibold font-['Outfit'] font-semibold">Formulir Pengambilan & Biodata</h4>
+                <hr class="py-2">
 
-            <form action="{{ route('sewa.checkout') }}" method="POST">
-                @csrf
+                <form action="{{ route('sewa.checkout') }}" method="POST">
+                    @csrf
 
-                <div class="mb-3">
-                    <label>Nama Lengkap</label>
-                    <input type="text"
-                           name="nama"
-                           class="form-control"
-                           required>
-                </div>
-
-                <div class="mb-3">
-                    <label>Nomor HP</label>
-                    <input type="text"
-                           name="no_hp"
-                           class="form-control"
-                           required>
-                </div>
-
-                <div class="mb-3">
-                    <label>Alamat</label>
-                    <textarea name="alamat"
-                              class="form-control"
-                              required></textarea>
-                </div>
-
-
-                <!-- TANGGAL -->
-                <div class="row">
-
-                    <div class="col-md-6 mb-3">
-                        <label>Tanggal Pengambilan</label>
-
-                        <input type="date"
-                               name="tgl_ambil"
-                               id="tgl_ambil"
+                    <div class="mb-3 font-['Instrument_Sans']">
+                        <label>Nama Lengkap</label>
+                        <input type="text"
+                               name="nama"
                                class="form-control"
                                required>
                     </div>
 
-                    <div class="col-md-6 mb-3">
-                        <label>Tanggal Pengembalian</label>
-
-                        <input type="date"
-                               name="tgl_kembali"
-                               id="tgl_kembali"
+                    <div class="mb-3 font-['Instrument_Sans']">
+                        <label>Nomor HP</label>
+                        <input type="text"
+                               name="no_hp"
                                class="form-control"
                                required>
                     </div>
 
-                </div>
+                    <div class="mb-3 font-['Instrument_Sans']">
+                        <label>Alamat</label>
+                        <textarea name="alamat"
+                                  class="form-control"
+                                  required></textarea>
+                    </div>
 
 
-                <!-- JUMLAH HARI -->
-                <div class="mb-3">
-                    <label>Jumlah Hari Sewa</label>
+                    <!-- TANGGAL -->
+                    <div class="row">
 
-                    <input type="text"
-                           id="jumlah_hari"
-                           class="form-control"
-                           value="Belum dipilih"
-                           readonly>
-                </div>
+                        <div class="col-md-6 mb-3 font-['Instrument_Sans']">
+                            <label>Tanggal Pengambilan</label>
+
+                            <input type="date"
+                                   name="tgl_ambil"
+                                   id="tgl_ambil"
+                                   class="form-control"
+                                   required>
+                        </div>
+
+                        <div class="col-md-6 mb-3 font-['Instrument_Sans']">
+                            <label>Tanggal Pengembalian</label>
+
+                            <input type="date"
+                                   name="tgl_kembali"
+                                   id="tgl_kembali"
+                                   class="form-control"
+                                   required>
+                        </div>
+
+                    </div>
 
 
-                <button type="submit"
-                        class="btn btn-warning w-100">
-                    Ajukan & Konfirmasi Rental
-                </button>
+                    <!-- JUMLAH HARI -->
+                    <div class="mb-3">
+                        <label class="font-['Instrument_Sans']">Jumlah Hari Sewa</label>
 
-            </form>
+                        <input type="text"
+                               id="jumlah_hari"
+                               class="form-control"
+                               value="Belum dipilih"
+                               readonly>
+                    </div>
+
+
+                    <button type="submit"
+                            class="btn btn-warning w-100">
+                        Ajukan & Konfirmasi Rental
+                    </button>
+
+                </form>
+            </div>
 
         </div>
 

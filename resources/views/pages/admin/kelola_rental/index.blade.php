@@ -67,10 +67,10 @@
             @forelse($rentals as $rental)
                 <tr class="text-center font-['Outfit'] text-[13px] font-semibold">
                     <td class="!py-[18px] align-middle !text-[#C75A3A]">{{ $rental->booking_code }}</td>
-                    <td class="!py-[18px] align-middle">{{ $rental->user->name }}</td>
+                    <td class="!py-[18px] align-middle">{{ $rental->user?->name ?? 'Pengguna tidak ditemukan' }}</td>
                     <td class="!py-[18px] align-middle font-['Instrument_Sans'] font-normal">
                         @foreach($rental->items as $item)
-                            {{ $item->alat->nama_alat }}{{ !$loop->last ? ', ' : '' }}
+                            {{ $item->alat?->nama_alat ?? 'Alat tidak ditemukan' }}{{ !$loop->last ? ', ' : '' }}
                         @endforeach
                     </td>
                     <td class="!py-[18px] align-middle font-normal">

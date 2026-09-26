@@ -32,7 +32,7 @@
             </div>
             <div class="ape">
             <h3 class="k3">Ambil Alat</h3>
-            <h6 class="ke1">Ambil di alamat Zans outdoor yang tertera</h6>
+            <h6 class="ke1">Pengambilan dan Transaksi bisa di lakukan di alamat Zans outdoor.</h6>
             </div>
         </div>
         <div class="car4">

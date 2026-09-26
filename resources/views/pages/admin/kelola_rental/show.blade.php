@@ -43,15 +43,15 @@
         <div class="grid grid-cols-2 gap-6 mb-6 pb-6 border-b border-gray-100">
             <div>
                 <p class="text-[12px] text-gray-400 mb-1">Nama Penyewa</p>
-                <p class="text-[14px] font-medium">{{ $rental->user->name }}</p>
+                <p class="text-[14px] font-medium">{{ $rental->user?->name ?? 'Pengguna tidak ditemukan' }}</p>
             </div>
             <div>
                 <p class="text-[12px] text-gray-400 mb-1">Nomor HP</p>
-                <p class="text-[14px] font-medium">{{ $rental->user->no_hp ?? '-' }}</p>
+                <p class="text-[14px] font-medium">{{ $rental->user?->no_hp ?? '-' }}</p>
             </div>
             <div class="col-span-2">
                 <p class="text-[12px] text-gray-400 mb-1">Alamat</p>
-                <p class="text-[14px] font-medium">{{ $rental->user->alamat ?? '-' }}</p>
+                <p class="text-[14px] font-medium">{{ $rental->user?->alamat ?? '-' }}</p>
             </div>
         </div>
 
@@ -90,7 +90,7 @@
                 <tbody>
                     @foreach ($rental->items as $item)
                         <tr class="border-t border-gray-50">
-                            <td class="py-2">{{ $item->alat->nama_alat }}</td>
+                            <td class="py-2">{{ $item->alat?->nama_alat ?? 'Alat tidak ditemukan' }}</td>
                             <td class="py-2 text-center">{{ $item->jumlah }}</td>
                             <td class="py-2 text-right">Rp{{ number_format($item->harga_saat_sewa, 0, ',', '.') }}</td>
                             <td class="py-2 text-right">Rp{{ number_format($item->harga_saat_sewa * $item->jumlah, 0, ',', '.') }}</td>

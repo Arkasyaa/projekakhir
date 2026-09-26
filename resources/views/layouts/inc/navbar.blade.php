@@ -6,11 +6,11 @@
     </a>
 
     <ul class="hidden md:flex items-center gap-8 text-sm" role="list">
-      <li><a href="#home" class="font-['Instrument_Sans'] nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='services'?'on !text-zinc-900 dark:!text-white':''">Home</a></li>
-      <li><a href="#katalog"     class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='work'?'on !text-zinc-900 dark:!text-white':''">Katalog</a></li>
-      <li><a href="#keunggulan"   class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='about'?'on !text-zinc-900 dark:!text-white':''">Keunggulan</a></li>
-      <li><a href="#cara_sewa" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='reviews'?'on !text-zinc-900 dark:!text-white':''">Cara Sewa</a></li>
-      <li><a href="#tentang_kami"    class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white" :class="s==='blog'?'on !text-zinc-900 dark:!text-white':''">Tentang Kami</a></li>
+      <li><a href="{{ route('home') }}#home" class="font-['Instrument_Sans'] nav-link">Home</a></li>
+      <li><a href="{{ route('home') }}#katalog" class="font-['Instrument_Sans'] nav-link">Katalog</a></li>
+      <li><a href="{{ route('home') }}#keunggulan" class="font-['Instrument_Sans'] nav-link">Keunggulan</a></li>
+      <li><a href="{{ route('home') }}#cara_sewa" class="font-['Instrument_Sans'] nav-link">Cara Sewa</a></li>
+      <li><a href="{{ route('home') }}#tentang_kami" class="font-['Instrument_Sans'] nav-link">Tentang Kami</a></li>
     </ul>
 
     <div class="flex items-center gap-3">

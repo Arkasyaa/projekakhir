@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZansOutdoor — Outdoor&amp; Rental</title>
 
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 <script src="https://cdn.tailwindcss.com"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -33,7 +33,10 @@ tailwind.config = {
 </script>
 
 @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+
 </head>
+
 
 <body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -66,7 +69,6 @@ function app() {
       // scroll
       window.addEventListener('scroll', () => {
         this.sc = window.scrollY > 20;
-        this.updateSection();
       }, { passive: true });
 
     //   // reveal
@@ -91,6 +93,8 @@ function app() {
   }
 }
 </script>
+
+
 
 </body>
 </html>

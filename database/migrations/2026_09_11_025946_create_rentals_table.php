@@ -20,7 +20,6 @@ return new class extends Migration
             $table->date('tanggal_kembali')->nullable();
             $table->decimal('total_pembayaran', 10, 2);
             $table->enum('status', ['menunggu konfirmasi', 'Konfirmasi', 'dipinjam', 'ditolak', 'selesai'])->default('menunggu konfirmasi');
-            $table->text('catatan')->default('');
             $table->timestamps();
         });
     }

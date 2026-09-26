@@ -7,11 +7,11 @@
     </a>
 
     <ul class="hidden md:flex items-center gap-8 text-sm" role="list">
-      <li><a href="{{ route('home') }}#home" class="font-['Instrument_Sans'] text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">Home</a></li>
-      <li><a href="{{ route('home') }}#katalog" class="font-['Instrument_Sans'] text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">Katalog</a></li>
-      <li><a href="{{ route('home') }}#keunggulan" class="font-['Instrument_Sans'] text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">Keunggulan</a></li>
-      <li><a href="{{ route('home') }}#cara_sewa" class="font-['Instrument_Sans'] text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">Cara Sewa</a></li>
-      <li><a href="{{ route('home') }}#tentang_kami" class="font-['Instrument_Sans'] text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">Tentang Kami</a></li>
+      <li><a href="{{ route('home') }}#home" class="font-['Instrument_Sans'] nav-link">Home</a></li>
+      <li><a href="{{ route('home') }}#katalog" class="font-['Instrument_Sans'] nav-link">Katalog</a></li>
+      <li><a href="{{ route('home') }}#keunggulan" class="font-['Instrument_Sans'] nav-link">Keunggulan</a></li>
+      <li><a href="{{ route('home') }}#cara_sewa" class="font-['Instrument_Sans'] nav-link">Cara Sewa</a></li>
+      <li><a href="{{ route('home') }}#tentang_kami" class="font-['Instrument_Sans'] nav-link">Tentang Kami</a></li>
     </ul>
 
     <div class="flex items-center gap-3">
