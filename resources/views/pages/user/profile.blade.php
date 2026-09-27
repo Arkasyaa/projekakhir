@@ -61,53 +61,52 @@
                             Simpan Perubahan
                             </button>
                         </div>
-                    </div>
-
-                        
+                    </div>        
                 </div> 
-                <div>
-                        <h2>Ubah Password</h2>
-
-                        <form action="{{ route("profile.update") }}" method="POST">
-                            @csrf
-                            @method('PUT')
-
-                            <button type="submit">
-                                Ubah Password
-                            </button>
-                            </form>
-
-                                <div>
-                                    <label>Password Lama</label>
-                                    <input
-                                        type="password"
-                                        name="current_password"
-                                    >
-                                </div>
-
-                                <div>
-                                    <label>Password Baru</label>
-                                    <input
-                                        type="password"
-                                        name="password"
-                                    >
-                                </div>
-
-                                <div>
-                                    <label>Konfirmasi Password Baru</label>
-                                    <input
-                                        type="password"
-                                        name="password_confirmation"
-                                    >
-                                </div>
-
+                    <div>
+                        <div class="card gap-4 bg-base-100 rounded-[24px] px-[30px] py-[30px]" style="width: 750px;">
+                            <h2 class="text-left font-['Outfit'] font-bold text-[20px]">Ubah Password</h2>
+                        
+                            <form action="{{ route("profile.update") }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                            
                                 <button type="submit">
                                     Ubah Password
                                 </button>
+                                </form>
+                            
+                                    <div>
+                                        <label>Password Lama</label>
+                                        <input
+                                            type="password"
+                                            name="current_password"
+                                        >
+                                    </div>
+                                
+                                    <div>
+                                        <label>Password Baru</label>
+                                        <input
+                                            type="password"
+                                            name="password"
+                                        >
+                                    </div>
+                                
+                                    <div>
+                                        <label>Konfirmasi Password Baru</label>
+                                        <input
+                                            type="password"
+                                            name="password_confirmation"
+                                        >
+                                    </div>
+                                
+                                    <button type="submit">
+                                        Ubah Password
+                                    </button>
+                                </form>
                             </form>
-                        </form>
+                        </div>
                     </div>
-                </div>
             </div>
 
         </div>

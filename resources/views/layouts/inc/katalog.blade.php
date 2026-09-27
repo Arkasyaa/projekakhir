@@ -25,8 +25,10 @@
             <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">Jaket, Celana, dan Sepatu untuk kenyamanan pada tubuh Anda.</p>
 
             @guest
-            <a href="{{ route('login') }}" onclick="alert('Silakan login terlebih dahulu!')" class="inline-flex items-center gap-2 text-sm font-medium text-emerald-800 hover:gap-3 transition-all">
-            Lihat Item Koleksi <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            <a href="{{ route('login') }}" class="inline-flex items-center gap-2 text-sm font-medium text-emerald-800 hover:gap-3 transition-all"
+            onclick="{{ !Auth::check() ? 'showLoginAlert(event)' : '' }}">
+            Lihat Item Koleksi 
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </a>
             @else
             <a href="#katalog-detail" class="inline-flex items-center gap-2 text-sm font-medium text-emerald-800 hover:gap-3 transition-all">
@@ -47,8 +49,10 @@
             <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">Tenda, Matras, dan Sleeping Bag berkualitas untuk kenyamanan saat Anda beristirahat.</p>
 
             @guest
-            <a href="{{ route('login') }}" onclick="alert('Silakan login terlebih dahulu!')" class="inline-flex items-center gap-2 text-sm font-medium text-emerald-800 hover:gap-3 transition-all">
-            Lihat Item Koleksi <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            <a href="{{ route('login') }}" class="inline-flex items-center gap-2 text-sm font-medium text-emerald-800 hover:gap-3 transition-all"
+            onclick="{{ !Auth::check() ? 'showLoginAlert(event)' : '' }}">
+            Lihat Item Koleksi 
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </a>
             @else
             <a href="#katalog-detail" class="inline-flex items-center gap-2 text-sm font-medium text-emerald-800 hover:gap-3 transition-all">
@@ -69,8 +73,10 @@
             <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">Carrier, Hydropack, dan Daypack yang nyaman dan berkualitas saat Anda gunakan.</p>
 
             @guest
-            <a href="{{ route('login') }}" onclick="alert('Silakan login terlebih dahulu!')" class="inline-flex items-center gap-2 text-sm font-medium text-emerald-800 hover:gap-3 transition-all">
-            Lihat Item Koleksi <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            <a href="{{ route('login') }}" class="inline-flex items-center gap-2 text-sm font-medium text-emerald-800 hover:gap-3 transition-all"
+            onclick="{{ !Auth::check() ? 'showLoginAlert(event)' : '' }}">
+            Lihat Item Koleksi 
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </a>
             @else
             <a href="#katalog-detail" class="inline-flex items-center gap-2 text-sm font-medium text-emerald-800 hover:gap-3 transition-all">
