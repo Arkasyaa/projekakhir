@@ -84,7 +84,7 @@
                     </td>
                     <td class="!py-[18px] align-middle">
                         @if($rental->status === 'menunggu_konfirmasi')
-                            <span class="rounded-full bg-orange-100 text-orange-500 py-[2px] px-3">Konfirmasi</span>
+                            <span class="rounded-full bg-orange-100 text-orange-500 py-[2px] px-3">Menunggu Konfirmasi</span>
                         @elseif($rental->status === 'disetujui')
                             <span class="rounded-full bg-blue-100 text-blue-500 py-[2px] px-3">Disetujui</span>
                         @elseif($rental->status === 'dipinjam')

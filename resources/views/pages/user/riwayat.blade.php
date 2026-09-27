@@ -3,13 +3,13 @@
 @section('title', 'Riwayat Rental')
 
 @section('content')
-<div class="bg-[#FCFBF6]">
-<div class="max-w-4xl mx-auto px-4 lg:px-10 py-16">
-
-    <h1 class="font-['Outfit'] text-[28px] font-bold mb-8">Riwayat Rental</h1>
-
+<div class="bg-[#FCFBF6] pt-20">
+<div class="max-w-4xl mx-auto px-4 lg:px-10 py-10">
+        <div class="pl-3 border-l-4 border-[#E67E22] mb-8">
+            <h1 class="font-['Outfit'] font-extrabold text-[30px]">Riwayat Rental</h1>
+        </div>
     @forelse ($rentals as $rental)
-        <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6 mb-5">
+        <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6 mb-4">
 
             <div class="flex justify-between items-start mb-4">
                 <p class="font-semibold text-[15px]">Booking ID: {{ $rental->booking_code }}</p>
@@ -81,18 +81,6 @@
                         Rp{{ number_format($rental->total_pembayaran, 0, ',', '.') }}
                     </p>
                     <div class="flex gap-2 justify-end">
-                        {{-- @if ($rental->status === 'menunggu_konfirmasi')
-                            <form action="{{ route('riwayat.cancel', $rental->id) }}"
-                                  method="POST"
-                                  onsubmit="return confirm('Yakin ingin membatalkan pesanan ini?');">
-                                @csrf
-                                @method('PATCH')
-                                <button type="submit"
-                                        class="border border-red-300 text-red-500 rounded-lg px-4 py-2 text-[13px] font-medium hover:bg-red-50 transition">
-                                    Batalkan
-                                </button>
-                            </form>
-                        @endif --}}
                         <a href="{{ route('riwayat.show', $rental->id) }}"
                            class="inline-block border border-gray-300 rounded-lg px-4 py-2 text-[13px] font-medium hover:bg-gray-50 transition">
                             Lihat Detail
