@@ -25,10 +25,8 @@ Route::get('/', function () {
 // auth routs
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register'])->name('register.post');
-
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.post');
-
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // admin dan user
@@ -61,6 +59,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('alat', AdminAlatController::class);
 });
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+    
 Route::resource('kelola_user', KelolauserController::class);
 });
 

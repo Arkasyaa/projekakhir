@@ -19,7 +19,8 @@ return new class extends Migration
             $table->integer('durasi_sewa');
             $table->date('tanggal_kembali')->nullable();
             $table->decimal('total_pembayaran', 10, 2);
-            $table->enum('status', ['menunggu konfirmasi', 'Konfirmasi', 'dipinjam', 'ditolak', 'selesai'])->default('menunggu konfirmasi');
+            $table->enum('status', ['menunggu_konfirmasi', 'disetujui ', 'dipinjam', 'ditolak', 'selesai'])->default('menunggu_konfirmasi');
+            $table->text('catatan')->nullable();
             $table->timestamps();
         });
     }

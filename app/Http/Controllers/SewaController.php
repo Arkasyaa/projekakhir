@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rental;
+use App\Models\Alat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class SewaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function checkout(Request $request)
     {
         $request->validate([
@@ -24,7 +23,7 @@ class SewaController extends Controller
         $keranjang = session()->get('keranjang', []);
 
         if (empty($keranjang)) {
-        return redirect()->route('keranjang.index')->with('error', 'Keranjang masih kosong.');
+            return redirect()->route('keranjang.index')->with('error', 'Keranjang masih kosong.');
         }
 
         $tglAmbil   = \Carbon\Carbon::parse($request->tgl_ambil);
@@ -33,6 +32,13 @@ class SewaController extends Controller
 
         $subtotalPerHari = 0;
         foreach ($keranjang as $item) {
+            $alat = Alat::find($item['id']);
+            if (!$alat) {
+                return back()->with('error', 'Alat tidak ditemukan.');
+            }
+            if ($alat->stok < $item['jumlah']) {
+                return back()->with('error', "Stok {$alat->nama} tidak cukup. Sisa: {$alat->stok}");
+            }
             $subtotalPerHari += $item['harga'] * $item['jumlah'];
         }
         $total = $subtotalPerHari * $durasi;
@@ -43,26 +49,31 @@ class SewaController extends Controller
             'alamat' => $request->alamat,
         ]);
 
-        $rental = Rental::create([
-            'user_id'             => $user->id,
-            'booking_code'        => 'ZANS-' . strtoupper(uniqid()),
-            'tanggal_pengambilan' => $request->tgl_ambil,
-            'tanggal_kembali'     => $request->tgl_kembali,
-            'durasi_sewa'         => $durasi,
-            'total_pembayaran'    => $total,
-            'status'              => 'menunggu_konfirmasi',
-        ]);
-
-        foreach ($keranjang as $item) {
-            $rental->items()->create([
-                'alat_id'         => $item['id'],
-                'jumlah'          => $item['jumlah'],
-                'harga_saat_sewa' => $item['harga'],
+        DB::transaction(function () use ($request, $keranjang, $user, $durasi, $total) {
+            $rental = Rental::create([
+                'user_id'             => $user->id,
+                'booking_code'        => 'ZANS-' . strtoupper(uniqid()),
+                'tanggal_pengambilan' => $request->tgl_ambil,
+                'tanggal_kembali'     => $request->tgl_kembali,
+                'durasi_sewa'         => $durasi,
+                'total_pembayaran'    => $total,
+                'status'              => 'menunggu_konfirmasi',
             ]);
-        }
+
+            foreach ($keranjang as $item) {
+                $rental->items()->create([
+                    'alat_id'         => $item['id'],
+                    'jumlah'          => $item['jumlah'],
+                    'harga_saat_sewa' => $item['harga'],
+                ]);
+
+                Alat::where('id', $item['id'])->decrement('stok', $item['jumlah']);
+            }
+        });
+
         session()->forget('keranjang');
 
         return redirect()->route('riwayat.index')
-        ->with('success', 'Pengajuan sewa berhasil dikirim, menunggu konfirmasi admin.');
+            ->with('success', 'Pengajuan sewa berhasil dikirim, menunggu konfirmasi admin.');
     }
 }

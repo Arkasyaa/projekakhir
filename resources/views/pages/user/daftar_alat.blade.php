@@ -30,7 +30,7 @@
             <div class="mb-4 d-flex gap-2 flex-wrap">
                 <a href="{{ route('katalog.index') }}" class="btn rounded-pill {{ !request('kategori') ? 'btn-secondary' : 'btn-outline-secondary' }}">Semua</a>
                 @foreach($kategoris as $kat)
-                    <a href="{{ route('katalog.index', ['kategori' => $kat]) }}" class="btn rounded-pill {{ request('kategori') == $kat ? 'btn-dark' : 'btn-outline-dark' }}">
+                    <a href="{{ route('katalog.index', ['kategori' => $kat]) }}" class="btn rounded-pill {{ request('kategori') == $kat ? 'btn-secondary' : 'btn-outline-secondary' }}">
                        {{ $kat }}
                     </a>
                 @endforeach
@@ -64,9 +64,10 @@
                                                     <button type="button" class="btn btn-outline-secondary btn-minus">-</button>
                                                     <input type="text" name="jumlah" value="1" class="form-control text-center jumlah" readonly>
                                                     <button type="button" class="btn btn-outline-secondary btn-plus">+</button>
+                                                    <h6>Stok:  {{ $alat->stok }}</h6>
                                                 </div>
                                                 <div class="ml-16">
-                                                    <button type="submit" class="btn btn-sm btn-dark">Masukan Keranjang</button>
+                                                    <button type="submit" class="btn btn-sm btn-secondary">Masukan Keranjang</button>
                                                 </div>
                                             </div>
                                         </form>
