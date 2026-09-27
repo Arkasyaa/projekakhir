@@ -14,8 +14,14 @@ class KelolaRentalController extends Controller
 
         if ($request->filled('search')) {
             $keyword = $request->search;
-            $query->whereHas('items.alat', function ($q) use ($keyword) {
-                $q->where('nama_alat', 'like', '%' . $keyword . '%');
+            $query->where(function ($q) use ($keyword) {
+                $q->where('booking_code', 'like', '%' . $keyword . '%')
+                  ->orWhereHas('user', function ($u) use ($keyword) {
+                      $u->where('name', 'like', '%' . $keyword . '%');
+                  })
+                  ->orWhereHas('items.alat', function ($a) use ($keyword) {
+                      $a->where('nama_alat', 'like', '%' . $keyword . '%');
+                  });
             });
         }
 
@@ -52,21 +58,6 @@ class KelolaRentalController extends Controller
         $rental = Rental::with('items.alat')->findOrFail($id);
         $statusBaru = $request->status;
         $statusLama = $rental->status;
-
-        $alurDiizinkan = [
-            'menunggu_konfirmasi' => ['disetujui', 'ditolak'],
-            'menunggu konfirmasi' => ['disetujui', 'ditolak'],
-            'Konfirmasi'          => ['disetujui', 'dipinjam'],
-            'disetujui'           => ['dipinjam'],
-            'dipinjam'            => ['selesai'],
-        ];
-
-        if (!isset($alurDiizinkan[$rental->status]) || !in_array($statusBaru, $alurDiizinkan[$rental->status])) {
-            if ($rental->status !== 'menunggu_konfirmasi' && $rental->status !== 'menunggu konfirmasi') {
-                if (!isset($alurDiizinkan[$statusLama]) || !in_array($statusBaru, $alurDiizinkan[$statusLama])) {
-                }
-            }
-        }
 
         DB::transaction(function () use ($rental, $statusBaru, $statusLama, $request) {
             $rental->update([

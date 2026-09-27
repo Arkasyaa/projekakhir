@@ -5,7 +5,7 @@
 @section('content')
 <div class="bg-[#FCFBF6] pt-20">
 <div class="max-w-4xl mx-auto px-4 lg:px-10 py-10">
-    <a href="{{ route('riwayat.index') }}" class="font-['Outfit'] font-semibold text-[30px] mb-8"> < Kembali Ke Riwayat Rental</a>
+    <a href="{{ route('riwayat.index') }}" class="font-['Outfit'] font-semibold text-[20px] mb-8"> < Kembali Ke Riwayat Rental</a>
     <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6 mt-4">
 
         <div class="flex justify-between items-start mb-6">

@@ -4,12 +4,8 @@
 
 @section('content')
 <div class="bg-[#FCFBF6]">
-<div class="max-w-3xl mx-auto px-4 lg:px-10 py-16">
-
-    <a href="{{ route('admin.kelola_rental.index') }}" class="text-sm text-gray-500 hover:text-gray-800">
-        &larr; Kembali ke Kelola Rental
-    </a>
-
+<div class="max-w-3xl mx-auto px-4 lg:px-10 pt-28 pb-20">
+    <a href="{{ route('admin.kelola_rental.index') }}" class="font-['Outfit'] font-semibold text-[20px] mb-8"> < Kembali Ke Kelola Rental</a>
     @if(session('success'))
         <div class="alert alert-success mt-4">{{ session('success') }}</div>
     @endif
@@ -25,7 +21,7 @@
                 <p class="font-semibold text-[18px] text-[#C75A3A]">{{ $rental->booking_code }}</p>
             </div>
 
-            @if ($rental->status === 'menunggu_konfirmasi')
+            @if ($rental->status === 'menunggu_konfirmasi' || $rental->status === 'menunggu konfirmasi')
                 <span class="text-[11px] font-semibold rounded-full px-3 py-1 bg-orange-100 text-orange-500">MENUNGGU KONFIRMASI</span>
             @elseif ($rental->status === 'disetujui')
                 <span class="text-[11px] font-semibold rounded-full px-3 py-1 bg-blue-100 text-blue-500">DISETUJUI</span>
@@ -43,15 +39,15 @@
         <div class="grid grid-cols-2 gap-6 mb-6 pb-6 border-b border-gray-100">
             <div>
                 <p class="text-[12px] text-gray-400 mb-1">Nama Penyewa</p>
-                <p class="text-[14px] font-medium">{{ $rental->user?->name ?? 'Pengguna tidak ditemukan' }}</p>
+                <p class="text-[14px] font-medium">{{ $rental->user?->name?? 'Pengguna tidak ditemukan' }}</p>
             </div>
             <div>
                 <p class="text-[12px] text-gray-400 mb-1">Nomor HP</p>
-                <p class="text-[14px] font-medium">{{ $rental->user?->no_hp ?? '-' }}</p>
+                <p class="text-[14px] font-medium">{{ $rental->user?->no_hp?? '-' }}</p>
             </div>
             <div class="col-span-2">
                 <p class="text-[12px] text-gray-400 mb-1">Alamat</p>
-                <p class="text-[14px] font-medium">{{ $rental->user?->alamat ?? '-' }}</p>
+                <p class="text-[14px] font-medium">{{ $rental->user?->alamat?? '-' }}</p>
             </div>
         </div>
 
@@ -62,9 +58,7 @@
             </div>
             <div>
                 <p class="text-[12px] text-gray-400 mb-1">Tanggal Pengembalian</p>
-                <p class="text-[14px] font-medium">
-                    {{ $rental->tanggal_kembali ? \Carbon\Carbon::parse($rental->tanggal_kembali)->format('d M Y') : '-' }}
-                </p>
+                <p class="text-[14px] font-medium">{{ $rental->tanggal_kembali? \Carbon\Carbon::parse($rental->tanggal_kembali)->format('d M Y') : '-' }}</p>
             </div>
             <div>
                 <p class="text-[12px] text-gray-400 mb-1">Durasi Sewa</p>
@@ -90,7 +84,7 @@
                 <tbody>
                     @foreach ($rental->items as $item)
                         <tr class="border-t border-gray-50">
-                            <td class="py-2">{{ $item->alat?->nama_alat ?? 'Alat tidak ditemukan' }}</td>
+                            <td class="py-2">{{ $item->alat?->nama_alat?? 'Alat tidak ditemukan' }}</td>
                             <td class="py-2 text-center">{{ $item->jumlah }}</td>
                             <td class="py-2 text-right">Rp{{ number_format($item->harga_saat_sewa, 0, ',', '.') }}</td>
                             <td class="py-2 text-right">Rp{{ number_format($item->harga_saat_sewa * $item->jumlah, 0, ',', '.') }}</td>
@@ -111,22 +105,17 @@
             </div>
         @endif
 
-        @if (in_array($rental->status, ['menunggu_konfirmasi', 'disetujui', 'dipinjam']))
+        @if (in_array($rental->status, ['menunggu_konfirmasi', 'menunggu konfirmasi', 'disetujui', 'dipinjam']))
             <div class="border-t border-gray-100 pt-5">
                 <p class="text-[13px] font-semibold mb-3">Update Status</p>
-
-                <form action="{{ route('admin.kelola_rental.update_status', $rental->id) }}" method="POST"
-                      onsubmit="return confirm('Yakin ingin mengubah status rental ini?');">
+                <form action="{{ route('admin.kelola_rental.update_status', $rental->id) }}" method="POST" onsubmit="return confirm('Yakin ingin mengubah status rental ini?');">
                     @csrf
                     @method('PATCH')
-
                     <div class="mb-3">
                         <label class="text-[13px] text-gray-500 block mb-1">Pilih status baru</label>
-                        <select name="status" id="status-select" class="form-control" required
-                                onchange="document.getElementById('field-catatan').classList.toggle('hidden', this.value !== 'ditolak')">
+                        <select name="status" id="status-select" class="form-control" required onchange="document.getElementById('field-catatan').classList.toggle('hidden', this.value!== 'ditolak')">
                             <option value="">-- Pilih Status --</option>
-
-                            @if ($rental->status === 'menunggu_konfirmasi')
+                            @if (in_array($rental->status, ['menunggu_konfirmasi', 'menunggu konfirmasi']))
                                 <option value="disetujui">Disetujui</option>
                                 <option value="ditolak">Ditolak</option>
                             @elseif ($rental->status === 'disetujui')
@@ -136,15 +125,11 @@
                             @endif
                         </select>
                     </div>
-
                     <div id="field-catatan" class="mb-3 hidden">
                         <label class="text-[13px] text-gray-500 block mb-1">Alasan penolakan</label>
                         <textarea name="catatan" class="form-control" rows="2" placeholder="Tulis alasan menolak pengajuan ini..."></textarea>
                     </div>
-
-                    <button type="submit" class="rounded-lg px-4 py-2 bg-[#C75A3A] hover:bg-[#B34E31] text-white text-[13px] font-semibold">
-                        Update Status
-                    </button>
+                    <button type="submit" class="rounded-lg px-4 py-2 bg-[#C75A3A] hover:bg-[#B34E31] text-white text-[13px] font-semibold">Update Status</button>
                 </form>
             </div>
         @endif
