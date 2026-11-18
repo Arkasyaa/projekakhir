@@ -19,7 +19,7 @@ use App\Http\Controllers\SewaController;
 // Halaman Home
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('landing');
 
 
 // auth routs
@@ -66,7 +66,9 @@ Route::resource('kelola_user', KelolauserController::class);
 
 Route::get('/katalog', [UserAlatController::class, 'index'])->name('katalog.index');
 Route::resource('keranjang', KeranjangController::class);
-Route::post('/sewa/checkout', [SewaController::class, 'checkout'])->name('sewa.checkout');
+Route::post('/sewa/checkout', [SewaController::class, 'checkout'])
+    ->middleware('auth')
+    ->name('sewa.checkout');
 Route::get('/riwayat/{riwayat}', [RiwayatrentalController::class, 'show'])->name('riwayat.show');
 
 Route::middleware('auth')->group(function () {

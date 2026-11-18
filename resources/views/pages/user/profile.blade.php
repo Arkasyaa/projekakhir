@@ -32,7 +32,7 @@
                     <hr class="w-full my-3">
                     <form action="{{ route('logout') }}" method="POST" class="w-full">
                         @csrf
-                        <button type="submit" onclick="confirmLogout()" class="w-full py-3 rounded-xl bg-red-50 text-red-700 font-bold hover:bg-red-100 transition">
+                        <button type="submit" onclick="confirmLogout(event)" class="w-full py-3 rounded-xl bg-red-50 text-red-700 font-bold hover:bg-red-100 transition">
                             Keluar / Logout</button>
                     </form>
                 </div>
@@ -103,10 +103,22 @@
 </script>
 
 <script>
-    function confirmLogout() {
-        if (!confirm('Apakah Anda yakin ingin keluar?')) {
-            event.preventDefault();
-        }
+    function confirmLogout(event) {
+        event.preventDefault();
+        const form = event.currentTarget.closest('form');
+
+        Swal.fire({
+            icon: 'warning',
+            title: 'Konfirmasi Logout',
+            text: 'Apakah Anda yakin ingin keluar?',
+            confirmButtonText: 'Logout',
+            showCancelButton: true,
+            cancelButtonText: 'Batal',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit();
+            }
+        });
     }
 </script>
 @endsection

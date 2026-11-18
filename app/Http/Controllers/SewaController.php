@@ -26,50 +26,65 @@ class SewaController extends Controller
             return redirect()->route('keranjang.index')->with('error', 'Keranjang masih kosong.');
         }
 
-        $tglAmbil   = \Carbon\Carbon::parse($request->tgl_ambil);
-        $tglKembali = \Carbon\Carbon::parse($request->tgl_kembali);
-        $durasi     = $tglAmbil->diffInDays($tglKembali);
-
-        $subtotalPerHari = 0;
-        foreach ($keranjang as $item) {
-            $alat = Alat::find($item['id']);
-            if (!$alat) {
-                return back()->with('error', 'Alat tidak ditemukan.');
-            }
-            if ($alat->stok < $item['jumlah']) {
-                return back()->with('error', "Stok {$alat->nama} tidak cukup. Sisa: {$alat->stok}");
-            }
-            $subtotalPerHari += $item['harga'] * $item['jumlah'];
-        }
-        $total = $subtotalPerHari * $durasi;
+        $tglAmbil   = \Carbon\Carbon::parse($request->tgl_ambil)->startOfDay();
+        $tglKembali = \Carbon\Carbon::parse($request->tgl_kembali)->startOfDay();
+        $durasi     = (int) $tglAmbil->diffInDays($tglKembali);
 
         $user = Auth::user();
-        $user->update([
-            'no_hp'  => $request->no_hp,
-            'alamat' => $request->alamat,
-        ]);
 
-        DB::transaction(function () use ($request, $keranjang, $user, $durasi, $total) {
-            $rental = Rental::create([
-                'user_id'             => $user->id,
-                'booking_code'        => 'ZANS-' . strtoupper(uniqid()),
-                'tanggal_pengambilan' => $request->tgl_ambil,
-                'tanggal_kembali'     => $request->tgl_kembali,
-                'durasi_sewa'         => $durasi,
-                'total_pembayaran'    => $total,
-                'status'              => 'menunggu_konfirmasi',
-            ]);
+        try {
+            DB::transaction(function () use ($request, $keranjang, $user, $durasi) {
+                // Kunci baris alat selama transaksi supaya stok tidak bisa
+                // diambil dua orang sekaligus, lalu cek stok dan hitung total.
+                $subtotalPerHari = 0;
+                $alatTerkunci = [];
 
-            foreach ($keranjang as $item) {
-                $rental->items()->create([
-                    'alat_id'         => $item['id'],
-                    'jumlah'          => $item['jumlah'],
-                    'harga_saat_sewa' => $item['harga'],
+                foreach ($keranjang as $item) {
+                    $alat = Alat::lockForUpdate()->find($item['id']);
+
+                    if (!$alat) {
+                        throw new \RuntimeException('Alat tidak ditemukan.');
+                    }
+                    if ($alat->stok < $item['jumlah']) {
+                        throw new \RuntimeException("Stok {$alat->nama_alat} tidak cukup. Sisa: {$alat->stok}");
+                    }
+
+                    $alatTerkunci[$item['id']] = $alat;
+                    // Pakai harga terbaru dari database, bukan harga di session
+                    $subtotalPerHari += $alat->harga * $item['jumlah'];
+                }
+
+                $user->update([
+                    'name'   => $request->nama,
+                    'no_hp'  => $request->no_hp,
+                    'alamat' => $request->alamat,
                 ]);
 
-                Alat::where('id', $item['id'])->decrement('stok', $item['jumlah']);
-            }
-        });
+                $rental = Rental::create([
+                    'user_id'             => $user->id,
+                    'booking_code'        => 'ZANS-' . strtoupper(uniqid()),
+                    'tanggal_pengambilan' => $request->tgl_ambil,
+                    'tanggal_kembali'     => $request->tgl_kembali,
+                    'durasi_sewa'         => $durasi,
+                    'total_pembayaran'    => $subtotalPerHari * $durasi,
+                    'status'              => 'menunggu_konfirmasi',
+                ]);
+
+                foreach ($keranjang as $item) {
+                    $alat = $alatTerkunci[$item['id']];
+
+                    $rental->items()->create([
+                        'alat_id'         => $alat->id,
+                        'jumlah'          => $item['jumlah'],
+                        'harga_saat_sewa' => $alat->harga,
+                    ]);
+
+                    $alat->decrement('stok', $item['jumlah']);
+                }
+            });
+        } catch (\RuntimeException $e) {
+            return back()->with('error', $e->getMessage());
+        }
 
         session()->forget('keranjang');
 
